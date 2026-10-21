@@ -1,0 +1,68 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function isStaff() {
+      return signedIn() && request.auth.token.get('staff', false) == true;
+    }
+    function applicationOwner(applicationId) {
+      return get(/databases/$(database)/documents/scholarshipApplications/$(applicationId)).data.ownerUid;
+    }
+
+    // Legacy website collections: closed to all clients at cutover. Admin SDK access is unaffected.
+    match /applications/{docId} {
+      allow read, write: if false;
+    }
+    match /applicationKeys/{docId} {
+      allow read, write: if false;
+    }
+
+    match /scholarshipCycles/{cycleId} {
+      allow read: if true;
+      allow write: if isStaff();
+    }
+
+    match /scholarshipApplications/{applicationId} {
+      allow create: if signedIn()
+        && request.resource.data.applicationId == applicationId
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.status == 'draft'
+        && request.resource.data.receiptCode == null
+        && request.resource.data.submittedAt == null
+        && request.resource.data.needsReview == false
+        && get(/databases/$(database)/documents/scholarshipCycles/$(request.resource.data.cycleId)).data.open == true;
+      allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid) || isStaff();
+      // Owners may change only their answers, and only while the draft is open. Submission and
+      // status changes go through Cloud Functions.
+      allow update: if signedIn()
+        && resource.data.ownerUid == request.auth.uid
+        && resource.data.status == 'draft'
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['sections', 'updatedAt']);
+      allow delete: if false;
+
+      // Metadata for files stored in Google Drive. Written only by Cloud Functions.
+      match /documents/{documentId} {
+        allow read: if (signedIn() && applicationOwner(applicationId) == request.auth.uid) || isStaff();
+        allow write: if false;
+      }
+    }
+
+    match /scholarshipDuplicateKeys/{keyId} {
+      allow read, write: if false;
+    }
+
+    match /scholarshipCatalogReview/{reviewId} {
+      allow read: if isStaff();
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['status', 'resolvedAt', 'resolvedBy', 'resolution']);
+      allow create, delete: if false;
+    }
+
+    match /scholarshipAudit/{auditId} {
+      allow read: if isStaff();
+      allow write: if false;
+    }
+  }
+}
