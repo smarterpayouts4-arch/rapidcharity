@@ -1,0 +1,326 @@
+{
+ "listId": "terms",
+ "title": "Terms (season + year)",
+ "source": "RAPID curated for this form (design choice), 2026-10-21; HEC semester system (Spring/Fall, optional Summer)",
+ "compiled": "2026-10-21",
+ "note": "Annual-system students pick the term in which the annual result was declared. Applicants never type \"Semester 1\".",
+ "items": [
+  {
+   "id": "term_2018_spring",
+   "label": "Spring 2018",
+   "season": "Spring",
+   "year": 2018,
+   "sortKey": 20181,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2018_summer",
+   "label": "Summer 2018",
+   "season": "Summer",
+   "year": 2018,
+   "sortKey": 20182,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2018_fall",
+   "label": "Fall 2018",
+   "season": "Fall",
+   "year": 2018,
+   "sortKey": 20183,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2019_spring",
+   "label": "Spring 2019",
+   "season": "Spring",
+   "year": 2019,
+   "sortKey": 20191,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2019_summer",
+   "label": "Summer 2019",
+   "season": "Summer",
+   "year": 2019,
+   "sortKey": 20192,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2019_fall",
+   "label": "Fall 2019",
+   "season": "Fall",
+   "year": 2019,
+   "sortKey": 20193,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2020_spring",
+   "label": "Spring 2020",
+   "season": "Spring",
+   "year": 2020,
+   "sortKey": 20201,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2020_summer",
+   "label": "Summer 2020",
+   "season": "Summer",
+   "year": 2020,
+   "sortKey": 20202,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2020_fall",
+   "label": "Fall 2020",
+   "season": "Fall",
+   "year": 2020,
+   "sortKey": 20203,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2021_spring",
+   "label": "Spring 2021",
+   "season": "Spring",
+   "year": 2021,
+   "sortKey": 20211,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2021_summer",
+   "label": "Summer 2021",
+   "season": "Summer",
+   "year": 2021,
+   "sortKey": 20212,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2021_fall",
+   "label": "Fall 2021",
+   "season": "Fall",
+   "year": 2021,
+   "sortKey": 20213,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2022_spring",
+   "label": "Spring 2022",
+   "season": "Spring",
+   "year": 2022,
+   "sortKey": 20221,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2022_summer",
+   "label": "Summer 2022",
+   "season": "Summer",
+   "year": 2022,
+   "sortKey": 20222,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2022_fall",
+   "label": "Fall 2022",
+   "season": "Fall",
+   "year": 2022,
+   "sortKey": 20223,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2023_spring",
+   "label": "Spring 2023",
+   "season": "Spring",
+   "year": 2023,
+   "sortKey": 20231,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2023_summer",
+   "label": "Summer 2023",
+   "season": "Summer",
+   "year": 2023,
+   "sortKey": 20232,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2023_fall",
+   "label": "Fall 2023",
+   "season": "Fall",
+   "year": 2023,
+   "sortKey": 20233,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2024_spring",
+   "label": "Spring 2024",
+   "season": "Spring",
+   "year": 2024,
+   "sortKey": 20241,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2024_summer",
+   "label": "Summer 2024",
+   "season": "Summer",
+   "year": 2024,
+   "sortKey": 20242,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2024_fall",
+   "label": "Fall 2024",
+   "season": "Fall",
+   "year": 2024,
+   "sortKey": 20243,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2025_spring",
+   "label": "Spring 2025",
+   "season": "Spring",
+   "year": 2025,
+   "sortKey": 20251,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2025_summer",
+   "label": "Summer 2025",
+   "season": "Summer",
+   "year": 2025,
+   "sortKey": 20252,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2025_fall",
+   "label": "Fall 2025",
+   "season": "Fall",
+   "year": 2025,
+   "sortKey": 20253,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2026_spring",
+   "label": "Spring 2026",
+   "season": "Spring",
+   "year": 2026,
+   "sortKey": 20261,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2026_summer",
+   "label": "Summer 2026",
+   "season": "Summer",
+   "year": 2026,
+   "sortKey": 20262,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2026_fall",
+   "label": "Fall 2026",
+   "season": "Fall",
+   "year": 2026,
+   "sortKey": 20263,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2027_spring",
+   "label": "Spring 2027",
+   "season": "Spring",
+   "year": 2027,
+   "sortKey": 20271,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2027_summer",
+   "label": "Summer 2027",
+   "season": "Summer",
+   "year": 2027,
+   "sortKey": 20272,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2027_fall",
+   "label": "Fall 2027",
+   "season": "Fall",
+   "year": 2027,
+   "sortKey": 20273,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2028_spring",
+   "label": "Spring 2028",
+   "season": "Spring",
+   "year": 2028,
+   "sortKey": 20281,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2028_summer",
+   "label": "Summer 2028",
+   "season": "Summer",
+   "year": 2028,
+   "sortKey": 20282,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2028_fall",
+   "label": "Fall 2028",
+   "season": "Fall",
+   "year": 2028,
+   "sortKey": 20283,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2029_spring",
+   "label": "Spring 2029",
+   "season": "Spring",
+   "year": 2029,
+   "sortKey": 20291,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2029_summer",
+   "label": "Summer 2029",
+   "season": "Summer",
+   "year": 2029,
+   "sortKey": 20292,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2029_fall",
+   "label": "Fall 2029",
+   "season": "Fall",
+   "year": 2029,
+   "sortKey": 20293,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "term_2030_spring",
+   "label": "Spring 2030",
+   "season": "Spring",
+   "year": 2030,
+   "sortKey": 20301,
+   "typicalMonths": "Jan/Feb - May/Jun"
+  },
+  {
+   "id": "term_2030_summer",
+   "label": "Summer 2030",
+   "season": "Summer",
+   "year": 2030,
+   "sortKey": 20302,
+   "typicalMonths": "Jun - Aug (short)"
+  },
+  {
+   "id": "term_2030_fall",
+   "label": "Fall 2030",
+   "season": "Fall",
+   "year": 2030,
+   "sortKey": 20303,
+   "typicalMonths": "Aug/Sep - Dec/Jan"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

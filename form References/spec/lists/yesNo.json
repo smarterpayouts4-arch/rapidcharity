@@ -1,0 +1,17 @@
+{
+ "listId": "yesNo",
+ "title": "Yes / No",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "yes",
+   "label": "Yes"
+  },
+  {
+   "id": "no",
+   "label": "No"
+  }
+ ]
+}

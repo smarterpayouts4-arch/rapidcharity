@@ -1,0 +1,42 @@
+{
+ "listId": "howHeard",
+ "title": "How did you hear about RAPID",
+ "source": "from applicant data (Working Sp 2027 - Clean.xlsx) (\"How Did You Come to Know RAPID?\" answers)",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "hh_church_pastor",
+   "label": "Church / pastor"
+  },
+  {
+   "id": "hh_friend_classmate",
+   "label": "Friend / classmate"
+  },
+  {
+   "id": "hh_family_member",
+   "label": "Family member"
+  },
+  {
+   "id": "hh_previous_rapid_scholar",
+   "label": "Previous RAPID scholar"
+  },
+  {
+   "id": "hh_university_college",
+   "label": "University / college"
+  },
+  {
+   "id": "hh_social_media",
+   "label": "Social media"
+  },
+  {
+   "id": "hh_rapid_event",
+   "label": "RAPID event"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "listId": "gpaScales",
+ "title": "GPA scale",
+ "source": "RAPID curated for this form (design choice), 2026-10-21; HEC (4.0 standard), IBCC new SSC/HSSC (5.0), some foreign/private (10.0)",
+ "compiled": "2026-10-21",
+ "note": "Other scale: applicant types the maximum, e.g. \"out of 4.33\".",
+ "items": [
+  {
+   "id": "gs_4",
+   "label": "Out of 4.0",
+   "max": 4.0
+  },
+  {
+   "id": "gs_5",
+   "label": "Out of 5.0",
+   "max": 5.0
+  },
+  {
+   "id": "gs_10",
+   "label": "Out of 10.0",
+   "max": 10.0
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

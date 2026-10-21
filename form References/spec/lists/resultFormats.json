@@ -1,0 +1,62 @@
+{
+ "listId": "resultFormats",
+ "title": "How are your results shown?",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "rf_sgpa",
+   "label": "Semester GPA (SGPA)",
+   "code": "sgpa",
+   "showsFields": "gpaScale, sgpa"
+  },
+  {
+   "id": "rf_cgpa",
+   "label": "Cumulative GPA (CGPA)",
+   "code": "cgpa",
+   "showsFields": "gpaScale, cgpa"
+  },
+  {
+   "id": "rf_both",
+   "label": "Both SGPA and CGPA",
+   "code": "both",
+   "showsFields": "gpaScale, sgpa, cgpa"
+  },
+  {
+   "id": "rf_percentage",
+   "label": "Percentage",
+   "code": "percentage",
+   "showsFields": "percentage"
+  },
+  {
+   "id": "rf_marks",
+   "label": "Marks obtained / total marks",
+   "code": "marks",
+   "showsFields": "marksObtained, marksTotal, marksPercent"
+  },
+  {
+   "id": "rf_letter",
+   "label": "Letter grade (A+, A, B ...)",
+   "code": "letter",
+   "showsFields": "gradeScheme (only if ambiguous), letterGrade"
+  },
+  {
+   "id": "rf_division",
+   "label": "Division (1st / 2nd / 3rd)",
+   "code": "division",
+   "showsFields": "division"
+  },
+  {
+   "id": "rf_passfail",
+   "label": "Pass / Fail only",
+   "code": "passfail",
+   "showsFields": "passFail"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

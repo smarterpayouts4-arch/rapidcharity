@@ -1,0 +1,374 @@
+{
+ "listId": "examBoards",
+ "title": "Examination boards",
+ "source": "IBCC member boards list (ibcc.edu.pk); Cambridge International; AKU-EB; RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "board_fbise",
+   "label": "Federal Board of Intermediate & Secondary Education, Islamabad",
+   "shortName": "FBISE",
+   "scope": "Islamabad / Federal (incl. cantonments, GB, overseas)",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_lahore",
+   "label": "BISE Lahore",
+   "shortName": "BISE Lahore",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_gujranwala",
+   "label": "BISE Gujranwala",
+   "shortName": "BISE Gujranwala",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_faisalabad",
+   "label": "BISE Faisalabad",
+   "shortName": "BISE Faisalabad",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_rawalpindi",
+   "label": "BISE Rawalpindi",
+   "shortName": "BISE Rawalpindi",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_sargodha",
+   "label": "BISE Sargodha",
+   "shortName": "BISE Sargodha",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_multan",
+   "label": "BISE Multan",
+   "shortName": "BISE Multan",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_sahiwal",
+   "label": "BISE Sahiwal",
+   "shortName": "BISE Sahiwal",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_bahawalpur",
+   "label": "BISE Bahawalpur",
+   "shortName": "BISE Bahawalpur",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "Wikipedia list of education boards (not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_bise_dg_khan",
+   "label": "BISE Dera Ghazi Khan",
+   "shortName": "BISE DG Khan",
+   "scope": "Punjab",
+   "type": "BISE",
+   "source": "Wikipedia list of education boards (not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_bie_karachi",
+   "label": "Board of Intermediate Education Karachi",
+   "shortName": "BIE Karachi",
+   "scope": "Sindh",
+   "type": "BISE (Intermediate)",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bsek",
+   "label": "Board of Secondary Education Karachi",
+   "shortName": "BSEK",
+   "scope": "Sindh",
+   "type": "BISE (Secondary)",
+   "source": "Wikipedia list of education boards (not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_bise_hyderabad",
+   "label": "BISE Hyderabad",
+   "shortName": "BISE Hyderabad",
+   "scope": "Sindh",
+   "type": "BISE",
+   "source": "Wikipedia list of education boards (not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_bise_sukkur",
+   "label": "BISE Sukkur",
+   "shortName": "BISE Sukkur",
+   "scope": "Sindh",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_larkana",
+   "label": "BISE Larkana",
+   "shortName": "BISE Larkana",
+   "scope": "Sindh",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_mirpurkhas",
+   "label": "BISE Mirpur Khas",
+   "shortName": "BISE Mirpurkhas",
+   "scope": "Sindh",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_sba",
+   "label": "BISE Shaheed Benazirabad",
+   "shortName": "BISE SBA",
+   "scope": "Sindh",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_peshawar",
+   "label": "BISE Peshawar",
+   "shortName": "BISE Peshawar",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_mardan",
+   "label": "BISE Mardan",
+   "shortName": "BISE Mardan",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_abbottabad",
+   "label": "BISE Abbottabad",
+   "shortName": "BISE Abbottabad",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_swat",
+   "label": "BISE Swat",
+   "shortName": "BISE Swat",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_malakand",
+   "label": "BISE Malakand",
+   "shortName": "BISE Malakand",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_kohat",
+   "label": "BISE Kohat",
+   "shortName": "BISE Kohat",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_bannu",
+   "label": "BISE Bannu",
+   "shortName": "BISE Bannu",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_di_khan",
+   "label": "BISE Dera Ismail Khan",
+   "shortName": "BISE DI Khan",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_quetta",
+   "label": "BISE Quetta (Balochistan)",
+   "shortName": "BISE Quetta",
+   "scope": "Balochistan",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_bise_khuzdar",
+   "label": "BISE Khuzdar",
+   "shortName": "BISE Khuzdar",
+   "scope": "Balochistan",
+   "type": "BISE",
+   "source": "Wikipedia list of education boards (est. 2020; not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_bise_turbat",
+   "label": "BISE Turbat",
+   "shortName": "BISE Turbat",
+   "scope": "Balochistan",
+   "type": "BISE",
+   "source": "Wikipedia list of education boards (est. 2020; not on IBCC forum page) - verify"
+  },
+  {
+   "id": "board_ajk_bise",
+   "label": "AJK BISE Mirpur",
+   "shortName": "AJK BISE",
+   "scope": "Azad Jammu & Kashmir",
+   "type": "BISE",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_kiu_eb",
+   "label": "Karakoram International University Examination Board",
+   "shortName": "KIU-EB",
+   "scope": "Gilgit-Baltistan",
+   "type": "Other board",
+   "source": "IBCC (listed as KIU under Other Boards)"
+  },
+  {
+   "id": "board_aku_eb",
+   "label": "Aga Khan University Examination Board",
+   "shortName": "AKU-EB",
+   "scope": "National (private)",
+   "type": "Other board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_ziauddin_board",
+   "label": "Ziauddin University Examination Board",
+   "shortName": "Ziauddin Board",
+   "scope": "Sindh (private)",
+   "type": "Other board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_aiou",
+   "label": "Allama Iqbal Open University",
+   "shortName": "AIOU",
+   "scope": "National",
+   "type": "Other board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_pbte",
+   "label": "Punjab Board of Technical Education",
+   "shortName": "PBTE",
+   "scope": "Punjab",
+   "type": "Technical board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_sbte",
+   "label": "Sindh Board of Technical Education",
+   "shortName": "SBTE",
+   "scope": "Sindh",
+   "type": "Technical board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_kp_bt_and_ce",
+   "label": "Khyber Pakhtunkhwa Board of Technical & Commerce Education",
+   "shortName": "KP BT&CE",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "Technical board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_btbb",
+   "label": "Balochistan Board of Technical Education",
+   "shortName": "BTBB",
+   "scope": "Balochistan",
+   "type": "Technical board",
+   "source": "IBCC (abbreviation as listed)"
+  },
+  {
+   "id": "board_pmf",
+   "label": "Punjab Medical Faculty",
+   "shortName": "PMF",
+   "scope": "Punjab",
+   "type": "Other (health diplomas)",
+   "source": "IBCC QAB list"
+  },
+  {
+   "id": "board_kp_medical_faculty",
+   "label": "Khyber Pakhtunkhwa Medical Faculty",
+   "shortName": "KP Medical Faculty",
+   "scope": "Khyber Pakhtunkhwa",
+   "type": "Other (health diplomas)",
+   "source": "IBCC QAB list"
+  },
+  {
+   "id": "board_cie",
+   "label": "Cambridge International Education (O/A-Level)",
+   "shortName": "CIE",
+   "scope": "Foreign QAB (IBCC-recognised)",
+   "type": "Foreign board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_pearson",
+   "label": "Pearson Edexcel (O/A-Level / IGCSE)",
+   "shortName": "Pearson",
+   "scope": "Foreign QAB (IBCC-recognised)",
+   "type": "Foreign board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_oxfordaqa",
+   "label": "OxfordAQA",
+   "shortName": "OxfordAQA",
+   "scope": "Foreign QAB (IBCC-recognised)",
+   "type": "Foreign board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_ibo",
+   "label": "International Baccalaureate",
+   "shortName": "IBO",
+   "scope": "Foreign QAB (IBCC-recognised)",
+   "type": "Foreign board",
+   "source": "IBCC"
+  },
+  {
+   "id": "board_madaris",
+   "label": "Wifaq / Tanzeem / other Deeni Madaris boards (IBCC-recognised)",
+   "shortName": "Madaris",
+   "scope": "National",
+   "type": "Religious board",
+   "source": "IBCC QAB list"
+  },
+  {
+   "id": "board_ibcc",
+   "label": "IBCC equivalence certificate (for O/A-Level or foreign results)",
+   "shortName": "IBCC",
+   "scope": "National",
+   "type": "Equivalence (not a board)",
+   "source": "IBCC"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

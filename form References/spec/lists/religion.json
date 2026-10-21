@@ -1,0 +1,34 @@
+{
+ "listId": "religion",
+ "title": "Religion",
+ "source": "RAPID normalizer (Scholarship-Normalization-Map.xlsx), 2026-10-15 FieldRules",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "relig_christian",
+   "label": "Christian"
+  },
+  {
+   "id": "relig_muslim",
+   "label": "Muslim"
+  },
+  {
+   "id": "relig_hindu",
+   "label": "Hindu"
+  },
+  {
+   "id": "relig_sikh",
+   "label": "Sikh"
+  },
+  {
+   "id": "relig_prefer_not_to_say",
+   "label": "Prefer not to say"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

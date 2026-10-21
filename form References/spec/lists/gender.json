@@ -1,0 +1,26 @@
+{
+ "listId": "gender",
+ "title": "Gender",
+ "source": "RAPID normalizer (Scholarship-Normalization-Map.xlsx), 2026-10-15 FieldRules",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "gen_female",
+   "label": "Female"
+  },
+  {
+   "id": "gen_male",
+   "label": "Male"
+  },
+  {
+   "id": "gen_prefer_not_to_say",
+   "label": "Prefer not to say"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

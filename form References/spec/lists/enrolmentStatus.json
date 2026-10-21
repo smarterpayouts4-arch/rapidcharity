@@ -1,0 +1,26 @@
+{
+ "listId": "enrolmentStatus",
+ "title": "Status",
+ "source": "RAPID curated for this form (design choice), 2026-10-21; audit (students with documents but no results)",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "es_continuing",
+   "label": "Continuing (I have results)"
+  },
+  {
+   "id": "es_new",
+   "label": "Newly admitted (no result yet)"
+  },
+  {
+   "id": "es_repeat",
+   "label": "Repeating / freeze"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

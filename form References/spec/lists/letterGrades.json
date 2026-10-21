@@ -1,0 +1,438 @@
+{
+ "listId": "letterGrades",
+ "title": "Letter grades (filtered by grade list)",
+ "source": "see Grading Scales sheet",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "grade_bise_old_aminus1_aplus",
+   "label": "A-1 (A+)",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 80,
+   "pctMax": 100,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_a",
+   "label": "A",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 70,
+   "pctMax": 79.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_b",
+   "label": "B",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 60,
+   "pctMax": 69.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_c",
+   "label": "C",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 50,
+   "pctMax": 59.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_d",
+   "label": "D",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 40,
+   "pctMax": 49.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_e",
+   "label": "E",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 33,
+   "pctMax": 39.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_bise_old_f",
+   "label": "F",
+   "schemeId": "gsch_bise_old",
+   "pctMin": 0,
+   "pctMax": 32.99,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_ibcc_new_aplusplus",
+   "label": "A++",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 95,
+   "pctMax": 100,
+   "gradePoint": 5.0
+  },
+  {
+   "id": "grade_ibcc_new_aplus",
+   "label": "A+",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 90,
+   "pctMax": 94.99,
+   "gradePoint": 4.7
+  },
+  {
+   "id": "grade_ibcc_new_a",
+   "label": "A",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 85,
+   "pctMax": 89.99,
+   "gradePoint": 4.3
+  },
+  {
+   "id": "grade_ibcc_new_bplusplus",
+   "label": "B++",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 80,
+   "pctMax": 84.99,
+   "gradePoint": 4.0
+  },
+  {
+   "id": "grade_ibcc_new_bplus",
+   "label": "B+",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 75,
+   "pctMax": 79.99,
+   "gradePoint": 3.7
+  },
+  {
+   "id": "grade_ibcc_new_b",
+   "label": "B",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 70,
+   "pctMax": 74.99,
+   "gradePoint": 3.3
+  },
+  {
+   "id": "grade_ibcc_new_c",
+   "label": "C",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 60,
+   "pctMax": 69.99,
+   "gradePoint": 3.0
+  },
+  {
+   "id": "grade_ibcc_new_d",
+   "label": "D",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 50,
+   "pctMax": 59.99,
+   "gradePoint": 2.0
+  },
+  {
+   "id": "grade_ibcc_new_e",
+   "label": "E",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 40,
+   "pctMax": 49.99,
+   "gradePoint": 1.0
+  },
+  {
+   "id": "grade_ibcc_new_u",
+   "label": "U",
+   "schemeId": "gsch_ibcc_new",
+   "pctMin": 0,
+   "pctMax": 39.99,
+   "gradePoint": 0.0
+  },
+  {
+   "id": "grade_hec_a",
+   "label": "A",
+   "schemeId": "gsch_hec",
+   "pctMin": 85,
+   "pctMax": 100,
+   "gradePoint": 3.67
+  },
+  {
+   "id": "grade_hec_aminus",
+   "label": "A-",
+   "schemeId": "gsch_hec",
+   "pctMin": 80,
+   "pctMax": 84.99,
+   "gradePoint": 3.34
+  },
+  {
+   "id": "grade_hec_bplus",
+   "label": "B+",
+   "schemeId": "gsch_hec",
+   "pctMin": 75,
+   "pctMax": 79.99,
+   "gradePoint": 3.01
+  },
+  {
+   "id": "grade_hec_b",
+   "label": "B",
+   "schemeId": "gsch_hec",
+   "pctMin": 71,
+   "pctMax": 74.99,
+   "gradePoint": 2.67
+  },
+  {
+   "id": "grade_hec_bminus",
+   "label": "B-",
+   "schemeId": "gsch_hec",
+   "pctMin": 68,
+   "pctMax": 70.99,
+   "gradePoint": 2.34
+  },
+  {
+   "id": "grade_hec_cplus",
+   "label": "C+",
+   "schemeId": "gsch_hec",
+   "pctMin": 64,
+   "pctMax": 67.99,
+   "gradePoint": 2.01
+  },
+  {
+   "id": "grade_hec_c",
+   "label": "C",
+   "schemeId": "gsch_hec",
+   "pctMin": 61,
+   "pctMax": 63.99,
+   "gradePoint": 1.67
+  },
+  {
+   "id": "grade_hec_cminus",
+   "label": "C-",
+   "schemeId": "gsch_hec",
+   "pctMin": 58,
+   "pctMax": 60.99,
+   "gradePoint": 1.31
+  },
+  {
+   "id": "grade_hec_dplus",
+   "label": "D+",
+   "schemeId": "gsch_hec",
+   "pctMin": 54,
+   "pctMax": 57.99,
+   "gradePoint": 1.01
+  },
+  {
+   "id": "grade_hec_d",
+   "label": "D",
+   "schemeId": "gsch_hec",
+   "pctMin": 50,
+   "pctMax": 53.99,
+   "gradePoint": 0.1
+  },
+  {
+   "id": "grade_hec_f",
+   "label": "F",
+   "schemeId": "gsch_hec",
+   "pctMin": 0,
+   "pctMax": 49.99,
+   "gradePoint": 0
+  },
+  {
+   "id": "grade_hec_aplus",
+   "label": "A+",
+   "schemeId": "gsch_hec",
+   "pctMin": 85,
+   "pctMax": 100,
+   "gradePoint": 4.0
+  },
+  {
+   "id": "grade_cambridge_astar",
+   "label": "A*",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 90,
+   "pctMax": 95,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_a",
+   "label": "A",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 85,
+   "pctMax": 85,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_b",
+   "label": "B",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 75,
+   "pctMax": 75,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_c",
+   "label": "C",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 65,
+   "pctMax": 65,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_d",
+   "label": "D",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 55,
+   "pctMax": 55,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_e",
+   "label": "E",
+   "schemeId": "gsch_cambridge",
+   "pctMin": 45,
+   "pctMax": 45,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_f",
+   "label": "F",
+   "schemeId": "gsch_cambridge",
+   "pctMin": null,
+   "pctMax": null,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_g",
+   "label": "G",
+   "schemeId": "gsch_cambridge",
+   "pctMin": null,
+   "pctMax": null,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_cambridge_u",
+   "label": "U",
+   "schemeId": "gsch_cambridge",
+   "pctMin": null,
+   "pctMax": null,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_9",
+   "label": "9",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 90,
+   "pctMax": 90,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_8",
+   "label": "8",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 87,
+   "pctMax": 87,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_7",
+   "label": "7",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 82,
+   "pctMax": 82,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_6",
+   "label": "6",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 77,
+   "pctMax": 77,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_5",
+   "label": "5",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 70,
+   "pctMax": 70,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_4",
+   "label": "4",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 60,
+   "pctMax": 60,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_3",
+   "label": "3",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 50,
+   "pctMax": 50,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_2",
+   "label": "2",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": 40,
+   "pctMax": 40,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_gcse_91_1",
+   "label": "1",
+   "schemeId": "gsch_gcse_91",
+   "pctMin": null,
+   "pctMax": null,
+   "gradePoint": null
+  },
+  {
+   "id": "grade_hec_annual_a",
+   "label": "A",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 85,
+   "pctMax": 100,
+   "gradePoint": 4.0
+  },
+  {
+   "id": "grade_hec_annual_aminus",
+   "label": "A-",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 70,
+   "pctMax": 84.99,
+   "gradePoint": 3.66
+  },
+  {
+   "id": "grade_hec_annual_b",
+   "label": "B",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 55,
+   "pctMax": 69.99,
+   "gradePoint": 2.66
+  },
+  {
+   "id": "grade_hec_annual_c",
+   "label": "C",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 45,
+   "pctMax": 54.99,
+   "gradePoint": 1.66
+  },
+  {
+   "id": "grade_hec_annual_d",
+   "label": "D",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 33,
+   "pctMax": 44.99,
+   "gradePoint": 1.0
+  },
+  {
+   "id": "grade_hec_annual_f",
+   "label": "F",
+   "schemeId": "gsch_hec_annual",
+   "pctMin": 0,
+   "pctMax": 32.99,
+   "gradePoint": 0
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

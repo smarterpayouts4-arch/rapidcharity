@@ -1,0 +1,34 @@
+{
+ "listId": "relationships",
+ "title": "Relationship (family reference)",
+ "source": "RAPID curated for this form (convention / design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "rel_father",
+   "label": "Father"
+  },
+  {
+   "id": "rel_mother",
+   "label": "Mother"
+  },
+  {
+   "id": "rel_guardian",
+   "label": "Guardian"
+  },
+  {
+   "id": "rel_sibling",
+   "label": "Sibling"
+  },
+  {
+   "id": "rel_uncle_aunt",
+   "label": "Uncle / aunt"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

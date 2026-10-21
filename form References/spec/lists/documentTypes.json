@@ -1,0 +1,113 @@
+{
+ "listId": "documentTypes",
+ "title": "Document types (upload slots)",
+ "source": "RAPID document checklist (audit of Working Sp 2027 documents folders); RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "doc_result",
+   "code": "RESULT",
+   "label": "Result document (uploaded inside each result entry)",
+   "required": "Optional per entry",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_RESULT_{Term | Level-Year}_{Last-First}.pdf",
+   "auditIssue": "Undated / misfiled results: the file is attached to the exact term or level it belongs to"
+  },
+  {
+   "id": "doc_applicant_id",
+   "code": "APPLICANT_ID",
+   "label": "Applicant CNIC / B-Form / Smart card (front & back)",
+   "required": "Yes",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_APPLICANT-ID_{Last-First}.pdf",
+   "auditIssue": "Audit: IDs filed in other students' folders"
+  },
+  {
+   "id": "doc_guardian_id",
+   "code": "GUARDIAN_ID",
+   "label": "Father / mother / guardian CNIC",
+   "required": "Yes",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_GUARDIAN-ID_{Relation}_{Last-First}.pdf",
+   "auditIssue": ""
+  },
+  {
+   "id": "doc_photo",
+   "code": "PHOTO",
+   "label": "Recent photograph (passport style)",
+   "required": "Yes",
+   "formats": "JPG, PNG; max 2 MB",
+   "storedFileName": "{AppID}_PHOTO_{Last-First}.jpg",
+   "auditIssue": "Audit: photos mislabelled as Applicant ID"
+  },
+  {
+   "id": "doc_admission_proof",
+   "code": "ADMISSION_PROOF",
+   "label": "Admission proof (admission letter / student card / enrolment certificate)",
+   "required": "Yes",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_ADMISSION-PROOF_{Last-First}.pdf",
+   "auditIssue": ""
+  },
+  {
+   "id": "doc_fee_voucher",
+   "code": "FEE_VOUCHER",
+   "label": "Fee voucher / fee bill for the semester applied for",
+   "required": "Yes",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_FEE-VOUCHER_{Term}_{Last-First}.pdf",
+   "auditIssue": "Supports \"Total Fee\" field"
+  },
+  {
+   "id": "doc_recommendation",
+   "code": "RECOMMENDATION",
+   "label": "Recommendation letter (church / pastor / priest)",
+   "required": "Yes",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_RECOMMENDATION_{Last-First}.pdf",
+   "auditIssue": ""
+  },
+  {
+   "id": "doc_income_proof",
+   "code": "INCOME_PROOF",
+   "label": "Income proof (salary slip / affidavit / pension book)",
+   "required": "Optional (recommended)",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_INCOME-PROOF_{Relation}_{Last-First}.pdf",
+   "auditIssue": ""
+  },
+  {
+   "id": "doc_death_cert",
+   "code": "DEATH_CERT",
+   "label": "Death certificate (if a parent is deceased)",
+   "required": "Conditional",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_DEATH-CERT_{Relation}_{Last-First}.pdf",
+   "auditIssue": ""
+  },
+  {
+   "id": "doc_disability_cert",
+   "code": "DISABILITY_CERT",
+   "label": "Disability certificate (Blind / special-needs category)",
+   "required": "Conditional",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_DISABILITY-CERT_{Last-First}.pdf",
+   "auditIssue": "Workbook has a \"Blind\" sheet"
+  },
+  {
+   "id": "doc_other",
+   "code": "OTHER",
+   "label": "Other supporting document (describe)",
+   "required": "Optional",
+   "formats": "PDF, JPG, PNG; max 5 MB",
+   "storedFileName": "{AppID}_OTHER_{short-label}_{Last-First}.pdf",
+   "auditIssue": "Admin review"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

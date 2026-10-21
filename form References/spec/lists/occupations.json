@@ -1,0 +1,62 @@
+{
+ "listId": "occupations",
+ "title": "Parent occupation",
+ "source": "RAPID normalizer (Scholarship-Normalization-Map.xlsx), 2026-10-15 FieldRules (homemaker / unemployed / retired / deceased must stay distinct)",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "occ_homemaker",
+   "label": "Homemaker"
+  },
+  {
+   "id": "occ_daily_wage_labour",
+   "label": "Daily-wage / labour"
+  },
+  {
+   "id": "occ_private_job",
+   "label": "Private job"
+  },
+  {
+   "id": "occ_government_job",
+   "label": "Government job"
+  },
+  {
+   "id": "occ_business_self_employed",
+   "label": "Business / self-employed"
+  },
+  {
+   "id": "occ_farmer",
+   "label": "Farmer"
+  },
+  {
+   "id": "occ_driver",
+   "label": "Driver"
+  },
+  {
+   "id": "occ_pastor_church_worker",
+   "label": "Pastor / church worker"
+  },
+  {
+   "id": "occ_retired",
+   "label": "Retired"
+  },
+  {
+   "id": "occ_unemployed",
+   "label": "Unemployed"
+  },
+  {
+   "id": "occ_deceased",
+   "label": "Deceased"
+  },
+  {
+   "id": "occ_abroad",
+   "label": "Abroad"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

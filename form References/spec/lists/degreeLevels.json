@@ -1,0 +1,294 @@
+{
+ "listId": "degreeLevels",
+ "title": "Degree levels",
+ "source": "HEC National Qualification Framework (levels/nomenclature); PNMC programme list; RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "lvl_mat",
+   "code": "MAT",
+   "label": "Matric / SSC",
+   "officialLabel": "Matric / SSC (Secondary School Certificate)",
+   "group": "School",
+   "typicalDuration": "2 years (Class 9-10)",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_ol",
+   "code": "OL",
+   "label": "O-Level / IGCSE",
+   "officialLabel": "O-Level (Cambridge / Pearson)",
+   "group": "School",
+   "typicalDuration": "2-3 years",
+   "studySystemDefault": "Exam sessions",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_int",
+   "code": "INT",
+   "label": "Intermediate / HSSC (FSc, ICS, I.Com, FA)",
+   "officialLabel": "Intermediate / HSSC (FSc, ICS, I.Com, FA, General Science)",
+   "group": "Pre-university",
+   "typicalDuration": "2 years (Class 11-12)",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_al",
+   "code": "AL",
+   "label": "A-Level",
+   "officialLabel": "A-Level (Cambridge / Pearson)",
+   "group": "Pre-university",
+   "typicalDuration": "2 years (AS + A2)",
+   "studySystemDefault": "Exam sessions",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_dae",
+   "code": "DAE",
+   "label": "DAE (3-year diploma)",
+   "officialLabel": "DAE / Diploma of Associate Engineer / other 3-year diploma",
+   "group": "Pre-university / technical",
+   "typicalDuration": "3 years",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_ndip",
+   "code": "NDIP",
+   "label": "Nursing / midwifery diploma (LHV, CMW, CNA, Midwifery, Post-Basic)",
+   "officialLabel": "Nursing / midwifery diploma or certificate (LHV, CMW, CNA, Diploma Midwifery, post-basic diploma)",
+   "group": "Nursing (non-degree)",
+   "typicalDuration": "1-2 years",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "nursing college|university"
+  },
+  {
+   "id": "lvl_adp",
+   "code": "ADP",
+   "label": "Associate Degree (2-year)",
+   "officialLabel": "Associate Degree (AD / ADP, 2-year)",
+   "group": "Undergraduate",
+   "typicalDuration": "2 years (60-72 credit hours)",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_ba2",
+   "code": "BA2",
+   "label": "BA / BSc / B.Com (2-year, old system)",
+   "officialLabel": "BA / BSc / B.Com (2-year, legacy ordinary bachelor's)",
+   "group": "Undergraduate",
+   "typicalDuration": "2 years",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_bs4",
+   "code": "BS4",
+   "label": "Bachelor's 4-year (BS, BBA, BE, BFA, B.Ed Hons ...)",
+   "officialLabel": "Bachelor's 4-year (BS / BBA / BE / BSc Engg / BFA / B.Ed Hons / B.Com Hons ...)",
+   "group": "Undergraduate",
+   "typicalDuration": "4 years (124-140 credit hours)",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_barch",
+   "code": "BARCH",
+   "label": "B.Arch (5-year)",
+   "officialLabel": "Bachelor of Architecture (B.Arch, 5-year)",
+   "group": "Undergraduate (professional)",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_bsng",
+   "code": "BSNG",
+   "label": "BSN Generic (4-year nursing degree)",
+   "officialLabel": "BS Nursing - Generic (BSN, 4-year)",
+   "group": "Nursing",
+   "typicalDuration": "4 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "nursing college|university"
+  },
+  {
+   "id": "lvl_bsnp",
+   "code": "BSNP",
+   "label": "Post-RN BSN (2-year, for registered nurses)",
+   "officialLabel": "BS Nursing - Post-RN (2-year)",
+   "group": "Nursing",
+   "typicalDuration": "2 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "nursing college|university"
+  },
+  {
+   "id": "lvl_bsm",
+   "code": "BSM",
+   "label": "BS Midwifery",
+   "officialLabel": "BS Midwifery (Generic BSM / Post-RN BSM)",
+   "group": "Nursing",
+   "typicalDuration": "4 years / 2 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "nursing college|university"
+  },
+  {
+   "id": "lvl_mbbs",
+   "code": "MBBS",
+   "label": "MBBS",
+   "officialLabel": "MBBS (Bachelor of Medicine & Bachelor of Surgery)",
+   "group": "Medical",
+   "typicalDuration": "5 years + 1-year house job",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "medical college|medical & dental college|university"
+  },
+  {
+   "id": "lvl_bds",
+   "code": "BDS",
+   "label": "BDS",
+   "officialLabel": "BDS (Bachelor of Dental Surgery)",
+   "group": "Medical",
+   "typicalDuration": "4 years + house job",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "dental college|medical & dental college|university"
+  },
+  {
+   "id": "lvl_pharmd",
+   "code": "PHARMD",
+   "label": "Pharm-D",
+   "officialLabel": "Pharm-D (Doctor of Pharmacy)",
+   "group": "Medical / allied",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_dpt",
+   "code": "DPT",
+   "label": "DPT",
+   "officialLabel": "DPT (Doctor of Physical Therapy)",
+   "group": "Medical / allied",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_dvm",
+   "code": "DVM",
+   "label": "DVM",
+   "officialLabel": "DVM (Doctor of Veterinary Medicine)",
+   "group": "Medical / allied",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_bems",
+   "code": "BEMS",
+   "label": "BEMS / Homeopathy",
+   "officialLabel": "BEMS / Eastern Medicine (Tibb) degree",
+   "group": "Medical / allied",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_llb",
+   "code": "LLB",
+   "label": "LLB (5-year)",
+   "officialLabel": "LLB (5-year)",
+   "group": "Law",
+   "typicalDuration": "5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_profacc",
+   "code": "PROFACC",
+   "label": "CA / ACCA / CMA / CIMA",
+   "officialLabel": "Professional accountancy (CA - ICAP, ACCA, CMA - ICMAP, CIMA)",
+   "group": "Professional certification",
+   "typicalDuration": "3-5 years (exam stages)",
+   "studySystemDefault": "Exam sessions",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_ma2",
+   "code": "MA2",
+   "label": "MA / MSc (2-year, old system)",
+   "officialLabel": "MA / MSc (2-year, legacy master's, 16 years)",
+   "group": "Postgraduate (legacy)",
+   "typicalDuration": "2 years",
+   "studySystemDefault": "Annual",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_mba",
+   "code": "MBA",
+   "label": "MBA / EMBA",
+   "officialLabel": "MBA / EMBA",
+   "group": "Postgraduate",
+   "typicalDuration": "1.5-2 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_ms",
+   "code": "MS",
+   "label": "MS / MSc (Hons) (18 years)",
+   "officialLabel": "MS / MSc (Hons) (18 years)",
+   "group": "Postgraduate",
+   "typicalDuration": "2 years (30+ credit hours)",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_mphil",
+   "code": "MPHIL",
+   "label": "MPhil",
+   "officialLabel": "MPhil (18 years)",
+   "group": "Postgraduate",
+   "typicalDuration": "2 years (30+ credit hours)",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_msn",
+   "code": "MSN",
+   "label": "MSN (Master of Science in Nursing)",
+   "officialLabel": "MSN (Master of Science in Nursing)",
+   "group": "Postgraduate",
+   "typicalDuration": "2 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "nursing college|university"
+  },
+  {
+   "id": "lvl_mph",
+   "code": "MPH",
+   "label": "MPH (Master of Public Health)",
+   "officialLabel": "MPH (Master of Public Health)",
+   "group": "Postgraduate",
+   "typicalDuration": "1.5-2 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "lvl_phd",
+   "code": "PHD",
+   "label": "PhD",
+   "officialLabel": "PhD (Doctor of Philosophy)",
+   "group": "Doctoral",
+   "typicalDuration": "3-5 years",
+   "studySystemDefault": "Semester",
+   "institutionTypes": "all"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

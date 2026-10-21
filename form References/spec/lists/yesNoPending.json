@@ -1,0 +1,21 @@
+{
+ "listId": "yesNoPending",
+ "title": "Yes / No / Applied",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "ynp_yes",
+   "label": "Yes"
+  },
+  {
+   "id": "ynp_no",
+   "label": "No"
+  },
+  {
+   "id": "ynp_pending",
+   "label": "Applied - pending"
+  }
+ ]
+}

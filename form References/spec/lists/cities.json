@@ -1,0 +1,1341 @@
+{
+ "listId": "cities",
+ "title": "Cities",
+ "source": "PBS Census 2023 district list; cities of HEC/PM&DC/PNMC institutions; applicant addresses (Working Sp 2027 - Clean.xlsx)",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "city_abbottabad",
+   "label": "Abbottabad",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_attock",
+   "label": "Attock",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_badin",
+   "label": "Badin",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bagh",
+   "label": "Bagh",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bahawalnagar",
+   "label": "Bahawalnagar",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bahawalpur",
+   "label": "Bahawalpur",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bannu",
+   "label": "Bannu",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_batkhela",
+   "label": "Batkhela",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_battagram",
+   "label": "Battagram",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bhakkar",
+   "label": "Bhakkar",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_bhera",
+   "label": "Bhera",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_bhimber",
+   "label": "Bhimber",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_bhit_shah",
+   "label": "Bhit Shah",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_buner",
+   "label": "Buner",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_burewala",
+   "label": "Burewala",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [
+    "Burawala"
+   ],
+   "source": "PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_chakwal",
+   "label": "Chakwal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_chaman",
+   "label": "Chaman",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_charsadda",
+   "label": "Charsadda",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_chiniot",
+   "label": "Chiniot",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_chitral",
+   "label": "Chitral",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_chunian",
+   "label": "Chunian",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PBS Census 2023 (Tehsil, Kasur District); from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_dadu",
+   "label": "Dadu",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_dalbandin",
+   "label": "Dalbandin",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_daska",
+   "label": "Daska",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PBS Census 2023 (Tehsil, Sialkot District); from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_dera_ghazi_khan",
+   "label": "Dera Ghazi Khan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_dera_ismail_khan",
+   "label": "Dera Ismail Khan",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_derya_khan",
+   "label": "Derya Khan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_faisalabad",
+   "label": "Faisalabad",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_gambat",
+   "label": "Gambat",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_ghizer",
+   "label": "Ghizer",
+   "province": "Gilgit-Baltistan",
+   "provinceId": "prov_gilgit_baltistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_ghotki",
+   "label": "Ghotki",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_gilgit",
+   "label": "Gilgit",
+   "province": "Gilgit-Baltistan",
+   "provinceId": "prov_gilgit_baltistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_gojra",
+   "label": "Gojra",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_gujar_khan",
+   "label": "Gujar Khan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_gujranwala",
+   "label": "Gujranwala",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_gujrat",
+   "label": "Gujrat",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_gwadar",
+   "label": "Gwadar",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_hafizabad",
+   "label": "Hafizabad",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_hangu",
+   "label": "Hangu",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_haripur",
+   "label": "Haripur",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_harnai",
+   "label": "Harnai",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_hassan_abdal",
+   "label": "Hassan Abdal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_hub",
+   "label": "Hub",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_hyderabad",
+   "label": "Hyderabad",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_islamabad",
+   "label": "Islamabad",
+   "province": "Islamabad Capital Territory",
+   "provinceId": "prov_islamabad_capital_territory",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_jacobabad",
+   "label": "Jacobabad",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_jafarabad",
+   "label": "Jafarabad",
+   "province": null,
+   "provinceId": "prov_",
+   "aliases": [],
+   "source": "from applicant data",
+   "note": "Possible PBS match: Jaffarabad District, Balochistan - but may be a Punjab town; verify"
+  },
+  {
+   "id": "city_jamshoro",
+   "label": "Jamshoro",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_jhang",
+   "label": "Jhang",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_jhelum",
+   "label": "Jhelum",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kallar_kahar",
+   "label": "Kallar Kahar",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kamalia",
+   "label": "Kamalia",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_kandhkot",
+   "label": "Kandhkot",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_karachi",
+   "label": "Karachi",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_karak",
+   "label": "Karak",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kasur",
+   "label": "Kasur",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_khairpur",
+   "label": "Khairpur",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_khanewal",
+   "label": "Khanewal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_khanpur",
+   "label": "Khanpur",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_khar_bajaur",
+   "label": "Khar (Bajaur)",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kharan",
+   "label": "Kharan",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kharian",
+   "label": "Kharian",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_khushab",
+   "label": "Khushab",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_khuzdar",
+   "label": "Khuzdar",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_killa_saifullah",
+   "label": "Killa Saifullah",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kohat",
+   "label": "Kohat",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kot_addu",
+   "label": "Kot Addu",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_kotli",
+   "label": "Kotli",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_lahore",
+   "label": "Lahore",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_lakki_marwat",
+   "label": "Lakki Marwat",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_larkana",
+   "label": "Larkana",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_lasbela",
+   "label": "Lasbela",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_layyah",
+   "label": "Layyah",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_lodhran",
+   "label": "Lodhran",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_loralai",
+   "label": "Loralai",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_lower_dir",
+   "label": "Lower Dir",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_malakand",
+   "label": "Malakand",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mandi_bahauddin",
+   "label": "Mandi Bahauddin",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [
+    "Mandi Baha uddin"
+   ],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_mansehra",
+   "label": "Mansehra",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mardan",
+   "label": "Mardan",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_matiari",
+   "label": "Matiari",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_matli",
+   "label": "Matli",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mian_channu",
+   "label": "Mian Channu",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mianwali",
+   "label": "Mianwali",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mirpur_ajk",
+   "label": "Mirpur (AJK)",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mirpur_khas",
+   "label": "Mirpur Khas",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_mithi",
+   "label": "Mithi",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_multan",
+   "label": "Multan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_murree",
+   "label": "Murree",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_muzaffarabad",
+   "label": "Muzaffarabad",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_muzaffargarh",
+   "label": "Muzaffargarh",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_nankana_sahib",
+   "label": "Nankana Sahib",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_narang_mandi",
+   "label": "Narang Mandi",
+   "province": null,
+   "provinceId": "prov_",
+   "aliases": [],
+   "source": "from applicant data",
+   "note": "Town not listed as a district/tehsil in PBS Table 1 - province to verify"
+  },
+  {
+   "id": "city_narowal",
+   "label": "Narowal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_nasirabad",
+   "label": "Nasirabad",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_naushahro_feroze",
+   "label": "Naushahro Feroze",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_nawabshah",
+   "label": "Nawabshah",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_nerian_sharif",
+   "label": "Nerian Sharif",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_nowshera",
+   "label": "Nowshera",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_nushki",
+   "label": "Nushki",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_okara",
+   "label": "Okara",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_pakpattan",
+   "label": "Pakpattan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_panjgur",
+   "label": "Panjgur",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_pashin",
+   "label": "Pashin",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_pattoki",
+   "label": "Pattoki",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_peshawar",
+   "label": "Peshawar",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_phool_nagar",
+   "label": "Phool Nagar",
+   "province": null,
+   "provinceId": "prov_",
+   "aliases": [],
+   "source": "from applicant data",
+   "note": "Town not listed as a district/tehsil in PBS Table 1 - province to verify"
+  },
+  {
+   "id": "city_pir_mahal",
+   "label": "Pir Mahal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PBS Census 2023 (Tehsil, Toba Tek Singh District); from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_poonch",
+   "label": "Poonch",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_quetta",
+   "label": "Quetta",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_rahim_yar_khan",
+   "label": "Rahim Yar Khan",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_rajanpur",
+   "label": "Rajanpur",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_rawalakot",
+   "label": "Rawalakot",
+   "province": "Azad Jammu & Kashmir",
+   "provinceId": "prov_azad_jammu_and_kashmir",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists",
+   "note": ""
+  },
+  {
+   "id": "city_rawalpindi",
+   "label": "Rawalpindi",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_sadiqabad",
+   "label": "Sadiqabad",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sahiwal",
+   "label": "Sahiwal",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sakrand",
+   "label": "Sakrand",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_sanghar",
+   "label": "Sanghar",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sargodha",
+   "label": "Sargodha",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes; from applicant data",
+   "note": ""
+  },
+  {
+   "id": "city_sehwan",
+   "label": "Sehwan",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_shahdadkot",
+   "label": "Shahdadkot",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_shahdadpur",
+   "label": "Shahdadpur",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_shakargarh",
+   "label": "Shakargarh",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_shangla",
+   "label": "Shangla",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sheikhupura",
+   "label": "Sheikhupura",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_shikarpur",
+   "label": "Shikarpur",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sialkot",
+   "label": "Sialkot",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sibi",
+   "label": "Sibi",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_skardu",
+   "label": "Skardu",
+   "province": "Gilgit-Baltistan",
+   "provinceId": "prov_gilgit_baltistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_sukkur",
+   "label": "Sukkur",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_swabi",
+   "label": "Swabi",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_swat",
+   "label": "Swat",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_tando_adam",
+   "label": "Tando Adam",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PM&DC college lists",
+   "note": ""
+  },
+  {
+   "id": "city_tando_allahyar",
+   "label": "Tando Allahyar",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_tando_muhammad_khan",
+   "label": "Tando Muhammad Khan",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_tandojam",
+   "label": "Tandojam",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university)",
+   "note": ""
+  },
+  {
+   "id": "city_tank",
+   "label": "Tank",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_taxila",
+   "label": "Taxila",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_tharparkar",
+   "label": "Tharparkar",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_thatta",
+   "label": "Thatta",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_toba_tek_singh",
+   "label": "Toba Tek Singh",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_turbat",
+   "label": "Turbat",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_umerkot",
+   "label": "Umerkot",
+   "province": "Sindh",
+   "provinceId": "prov_sindh",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_upper_dir",
+   "label": "Upper Dir",
+   "province": "Khyber Pakhtunkhwa",
+   "provinceId": "prov_khyber_pakhtunkhwa",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_vehari",
+   "label": "Vehari",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_wah_cantt",
+   "label": "Wah Cantt",
+   "province": "Punjab",
+   "provinceId": "prov_punjab",
+   "aliases": [],
+   "source": "PASTIC directory (city of HEC-listed university); PM&DC college lists; PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "city_zhob",
+   "label": "Zhob",
+   "province": "Balochistan",
+   "provinceId": "prov_balochistan",
+   "aliases": [],
+   "source": "PNMC Recognized Institutes",
+   "note": ""
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

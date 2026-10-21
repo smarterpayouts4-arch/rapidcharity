@@ -1,0 +1,30 @@
+{
+ "listId": "employmentStatus",
+ "title": "Employment status",
+ "source": "RAPID normalizer (Scholarship-Normalization-Map.xlsx), 2026-10-15 FieldRules",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "emp_not_employed",
+   "label": "Not employed"
+  },
+  {
+   "id": "emp_employed_full_time",
+   "label": "Employed full-time"
+  },
+  {
+   "id": "emp_employed_part_time",
+   "label": "Employed part-time"
+  },
+  {
+   "id": "emp_self_employed",
+   "label": "Self-employed"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

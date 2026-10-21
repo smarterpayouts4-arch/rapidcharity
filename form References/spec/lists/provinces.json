@@ -1,0 +1,54 @@
+{
+ "listId": "provinces",
+ "title": "Provinces / regions",
+ "source": "Constitution of Pakistan / PBS Census 2023",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "prov_punjab",
+   "label": "Punjab",
+   "type": "Province"
+  },
+  {
+   "id": "prov_sindh",
+   "label": "Sindh",
+   "type": "Province"
+  },
+  {
+   "id": "prov_khyber_pakhtunkhwa",
+   "label": "Khyber Pakhtunkhwa",
+   "type": "Province"
+  },
+  {
+   "id": "prov_balochistan",
+   "label": "Balochistan",
+   "type": "Province"
+  },
+  {
+   "id": "prov_islamabad_capital_territory",
+   "label": "Islamabad Capital Territory",
+   "type": "Federal territory"
+  },
+  {
+   "id": "prov_gilgit_baltistan",
+   "label": "Gilgit-Baltistan",
+   "type": "Administrative territory"
+  },
+  {
+   "id": "prov_azad_jammu_and_kashmir",
+   "label": "Azad Jammu & Kashmir",
+   "type": "Administrative territory"
+  },
+  {
+   "id": "prov_outside_pakistan",
+   "label": "Outside Pakistan",
+   "type": "Other"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

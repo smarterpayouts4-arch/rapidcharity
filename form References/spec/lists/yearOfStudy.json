@@ -1,0 +1,62 @@
+{
+ "listId": "yearOfStudy",
+ "title": "Current year / professional",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "yr_1",
+   "label": "1st year"
+  },
+  {
+   "id": "yr_2",
+   "label": "2nd year"
+  },
+  {
+   "id": "yr_3",
+   "label": "3rd year"
+  },
+  {
+   "id": "yr_4",
+   "label": "4th year"
+  },
+  {
+   "id": "yr_5",
+   "label": "5th year"
+  },
+  {
+   "id": "yr_6",
+   "label": "1st Professional"
+  },
+  {
+   "id": "yr_7",
+   "label": "2nd Professional"
+  },
+  {
+   "id": "yr_8",
+   "label": "3rd Professional"
+  },
+  {
+   "id": "yr_9",
+   "label": "4th Professional"
+  },
+  {
+   "id": "yr_10",
+   "label": "Final Professional"
+  },
+  {
+   "id": "yr_11",
+   "label": "Part-I"
+  },
+  {
+   "id": "yr_12",
+   "label": "Part-II"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

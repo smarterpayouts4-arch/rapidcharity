@@ -1,0 +1,56 @@
+{
+ "listId": "gradeSchemes",
+ "title": "Grade lists (which letter grades appear on the card)",
+ "source": "see per-row source",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "gsch_bise_old",
+   "code": "BISE_OLD",
+   "label": "Matric/Inter grades A-1, A, B, C, D, E (exams up to 2025)",
+   "levels": "MAT;INT",
+   "source": "BISE Sahiwal grading page (bisesahiwal.edu.pk/grading.php); BISE Gujranwala (bisegrw.edu.pk/grading.html); BISE Bahawalpur (bisebwp.pk/Grading.aspx) - retrieved 2026-10-21"
+  },
+  {
+   "id": "gsch_ibcc_new",
+   "code": "IBCC_NEW",
+   "label": "Matric/Inter new grades A++ ... U (exams from 2026)",
+   "levels": "MAT;INT",
+   "source": "IBCC \"New Grading System of SSC & HSSC\" FAQ (ibcc.edu.pk/faqs/new-grading-system-of-ssc-hssc-faqs/); bands & grade points as tabulated by Nuffic (nuffic.nl/en/education-systems/pakistan/grades-and-study-results) - retrieved 2026-10-21"
+  },
+  {
+   "id": "gsch_hec",
+   "code": "HEC",
+   "label": "University letter grades A, A-, B+ ... F",
+   "levels": "ADP;BS4;BSNG;BSNP;BSM;MS;MPHIL;MSN;MPH;MBA;PHD;PHARMD;DPT;DVM;LLB;BARCH;BEMS",
+   "source": "HEC \"Policy Guidelines for Implementation of Uniform Semester System in HEIs of Pakistan\", s.13.1 Fractionalized Grading System (hec.gov.pk/english/services/universities/Documents/Final Examination Policy Guidelines.pdf) - retrieved 2026-10-21"
+  },
+  {
+   "id": "gsch_hec_annual",
+   "code": "HEC_ANNUAL",
+   "label": "Annual-system degree grades A, A-, B, C, D",
+   "levels": "BA2;MA2",
+   "source": "Same HEC Policy Guidelines, s.13.2 Conversion of Annual System marks to GPA/CGPA (copy hosted at greenwich.edu.pk/qec/downloads/SemesterGuidelines.pdf) - retrieved 2026-10-21"
+  },
+  {
+   "id": "gsch_cambridge",
+   "code": "CAMBRIDGE",
+   "label": "O/A Level grades A*, A, B, C, D, E",
+   "levels": "OL;AL",
+   "source": "IBCC \"Conversion for Equivalence\" (ibcc.edu.pk/conversion-for-equivalence/); Cambridge International \"Cambridge in Pakistan\" recognition page; IBCC A-Level 2026 A* table (ibcc.edu.pk/wp-content/uploads/2026/07/A-Levels-2026.pdf) - retrieved 2026-10-21"
+  },
+  {
+   "id": "gsch_gcse_91",
+   "code": "GCSE_91",
+   "label": "IGCSE/GCSE number grades 9-1",
+   "levels": "OL",
+   "source": "IBCC \"Conversion for Equivalence\" (ibcc.edu.pk/conversion-for-equivalence/); Cambridge International \"Cambridge in Pakistan\" recognition page; IBCC A-Level 2026 A* table (ibcc.edu.pk/wp-content/uploads/2026/07/A-Levels-2026.pdf) - retrieved 2026-10-21"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

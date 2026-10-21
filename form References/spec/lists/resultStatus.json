@@ -1,0 +1,26 @@
+{
+ "listId": "resultStatus",
+ "title": "Result status",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "rs_final",
+   "label": "Final result"
+  },
+  {
+   "id": "rs_part1",
+   "label": "Part-I only (Part-II awaited)"
+  },
+  {
+   "id": "rs_awaited",
+   "label": "Result awaited"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

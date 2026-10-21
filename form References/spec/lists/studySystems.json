@@ -1,0 +1,26 @@
+{
+ "listId": "studySystems",
+ "title": "Study system",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "sys_semester",
+   "label": "Semester"
+  },
+  {
+   "id": "sys_annual",
+   "label": "Annual (yearly exams)"
+  },
+  {
+   "id": "sys_sessions",
+   "label": "Exam sessions (CA, ACCA, O/A Level)"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}

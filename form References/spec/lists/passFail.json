@@ -1,0 +1,26 @@
+{
+ "listId": "passFail",
+ "title": "Pass / Fail",
+ "source": "RAPID curated for this form (design choice), 2026-10-21",
+ "compiled": "2026-10-21",
+ "note": "",
+ "items": [
+  {
+   "id": "pf_pass",
+   "label": "Pass"
+  },
+  {
+   "id": "pf_fail",
+   "label": "Fail"
+  },
+  {
+   "id": "pf_supp",
+   "label": "Passed in supplementary / re-sit"
+  },
+  {
+   "id": "other",
+   "label": "Other (please type it)",
+   "isOther": true
+  }
+ ]
+}
