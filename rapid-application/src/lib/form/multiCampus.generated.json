@@ -1,0 +1,61 @@
+{
+  "inst_bahria_university": [
+    "inst_bahria_university__campus_dental_college_bahria_university_medical_dental_college_karachi",
+    "inst_bahria_university__campus_bahria_university_college_of_medicine_islamabad",
+    "inst_bahria_university__campus_bahria_university_medical_college_karachi"
+  ],
+  "inst_college_of_nursing_larkana": [
+    "inst_college_of_nursing_larkana__campus_college_of_nursing_chandka_larkana_larkana",
+    "inst_college_of_nursing_larkana__campus_college_of_nursing_male_larkana_larkana"
+  ],
+  "inst_foundation_university": [
+    "inst_foundation_university__campus_foundation_university_college_of_dentistry_islamabad",
+    "inst_foundation_university__campus_foundation_university_medical_college_islamabad",
+    "inst_foundation_university__campus_foundation_university_islamabad_campus_fuic_islamabad"
+  ],
+  "inst_iqra_university": [
+    "inst_iqra_university__campus_department_of_nursing_iqra_university_chak_shahzad_campus_islamabad_islamabad",
+    "inst_iqra_university__campus_iqra_university_nursing_college_karachi_karachi",
+    "inst_iqra_university__campus_iqra_university_h_9_campus_islamabad",
+    "inst_iqra_university__campus_iqra_university_swat_campus_swat"
+  ],
+  "inst_jinnah_sindh_medical_university": [
+    "inst_jinnah_sindh_medical_university__campus_sindh_institute_of_oral_health_sciences_jsmu_karachi",
+    "inst_jinnah_sindh_medical_university__campus_jinnah_sindh_medical_university_karachi"
+  ],
+  "inst_khyber_medical_university": [
+    "inst_khyber_medical_university__campus_kmu_institute_of_dental_sciences_kids_kohat",
+    "inst_khyber_medical_university__campus_kmu_institute_of_medical_sciences_kohat",
+    "inst_khyber_medical_university__campus_college_of_nursing_khyber_medical_university_kmu_peshawar",
+    "inst_khyber_medical_university__campus_institute_of_nursing_khyber_medical_university_swat_swat",
+    "inst_khyber_medical_university__campus_khyber_medical_university_kmu_ihs_swabi_campus_swabi",
+    "inst_khyber_medical_university__campus_khyber_medical_university_kmu_ihs_islamabad_campus_islamabad"
+  ],
+  "inst_king_edward_medical_university": [
+    "inst_king_edward_medical_university__campus_king_edward_medical_university_lahore",
+    "inst_king_edward_medical_university__campus_college_of_nursing_king_edward_medical_university_kemu_lahore_lahore"
+  ],
+  "inst_liaquat_college_of_medicine_and_dentistry": [
+    "inst_liaquat_college_of_medicine_and_dentistry__campus_liaquat_college_of_medicine_dentistry_karachi",
+    "inst_liaquat_college_of_medicine_and_dentistry__campus_liaquat_college_of_medicine_dentistry_karachi"
+  ],
+  "inst_punjab_group_of_colleges": [
+    "inst_punjab_group_of_colleges__campus_punjab_college_morgah_campus_rawalpindi_rawalpindi",
+    "inst_punjab_group_of_colleges__campus_punjab_college_for_girls_ganda_singh_road_kasur_kasur",
+    "inst_punjab_group_of_colleges__campus_punjab_college_of_commerce_for_boys_gt_road_wazirabad_wazirabad",
+    "inst_punjab_group_of_colleges__campus_punjab_college_okara_okara"
+  ],
+  "inst_riphah_international_university": [
+    "inst_riphah_international_university__campus_riphah_college_of_nursing_sahiwal",
+    "inst_riphah_international_university__campus_riphah_college_of_nursing_rawalpindi_rawalpindi",
+    "inst_riphah_international_university__campus_riphah_college_of_nursing_riphah_university_faisalabad"
+  ],
+  "inst_sukaina_college_of_nursing_midwifery_and_allied_health_scien": [
+    "inst_sukaina_college_of_nursing_midwifery_and_allied_health_scien__campus_sukaina_college_of_nursing_midwifery_allied_health_sciences_khanpur",
+    "inst_sukaina_college_of_nursing_midwifery_and_allied_health_scien__campus_sukaina_college_of_nursing_midwifery_and_allied_health_sciences_khanpur"
+  ],
+  "inst_university_of_lahore": [
+    "inst_university_of_lahore__campus_school_of_nursing_the_university_of_lahore_sargodha_campus_sargodha",
+    "inst_university_of_lahore__campus_university_of_lahore_lahore"
+  ]
+}
