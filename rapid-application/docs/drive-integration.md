@@ -21,7 +21,7 @@ The URL is not treated as a secret. Every request is signed with HMAC-SHA256 usi
 
 1. Create an Apps Script project and paste `Code.gs` and `appsscript.json`.
 2. Script properties:
-   - `BRIDGE_SECRET`: random, at least 32 characters.
+   - `BRIDGE_SECRET`: the value in `functions/.secret.live.local` (generated locally, git-ignored).
    - `ALLOWED_ROOT_FOLDER_IDS`: the test root now; the production root at cutover.
    - `TEST_ROOT_FOLDER_IDS`: the test root only.
 3. Deploy as a web app: execute as me, access anyone. The signature check is what protects it.
@@ -32,9 +32,10 @@ The URL is not treated as a secret. Every request is signed with HMAC-SHA256 usi
 ## Folders
 
 - Test root: **RAPID Spring 2027 Test** (`1wEUCIj_AOttFAwu4BxzAYxqPCbsTFH6h`). All demo and test uploads go here.
-- Its JIA, RM and IA subfolders are not used, because the form has no scholarship-type field. They can be removed with approval.
+- Its JIA, RM and IA subfolders are not used. Scholarship type is recorded by staff as application metadata instead. The subfolders can be removed with approval.
 - Production root: to be chosen at cutover.
 
-## Local testing
+## Testing
 
-The emulator stack uses `tests/support/fakeDriveBridge.ts`. It applies the same checks as `Code.gs` and keeps files in memory.
+- **Simulated:** the emulator tests use `tests/support/fakeDriveBridge.ts`, which applies the same checks as `Code.gs` and keeps files in memory. This is not Google Drive.
+- **Real:** after the bridge is deployed and its URL is added to `functions/.secret.live.local`, run `npm run live:drive`. It calls the real bridge with the Functions code (Firestore in the emulator) and writes `docs/evidence/live-drive-check.json`. Then `npm run live:drive:cleanup` trashes only the files it created.

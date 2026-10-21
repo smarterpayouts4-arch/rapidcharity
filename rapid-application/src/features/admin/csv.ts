@@ -22,6 +22,7 @@ export function buildCsv(apps: ScholarshipApplication[], documents: DocumentReco
     "Application id",
     "Submitted at",
     "Needs review",
+    "Scholarship",
     ...keys.map((k) => FIELD_LABELS[k.key] ?? k.key),
     "University terms",
     "Earlier education entries",
@@ -34,6 +35,7 @@ export function buildCsv(apps: ScholarshipApplication[], documents: DocumentReco
       app.applicationId,
       app.submittedAt ? new Date(app.submittedAt).toISOString() : "",
       app.needsReview ? "yes" : "no",
+      app.scholarshipProgram ?? "",
       ...keys.map(({ section, key }) => {
         const values = app.sections[section] as Record<string, unknown>;
         return displayValue(values[key], labels, values[`${key}Other`]);

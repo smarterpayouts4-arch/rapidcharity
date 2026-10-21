@@ -16,15 +16,16 @@ Last updated: 2026-10-21
 | Documents | Server-side upload via Functions → Drive bridge; type/size/magic-byte checks; opaque folder `root/{applicationId}`; retry and duplicate safe | `server.test.ts`, E2E 6 |
 | Submit | Server validates the stored draft; CNIC duplicate key in one transaction; idempotent receipt `RAPID-2027-XXXXXXXX` | `server.test.ts`, E2E 10 |
 | Admin | Staff claim from allowlist; list, detail, view/verify/reject documents, typed-in answers queue, CSV export, open/deadline | `server.test.ts`, E2E 7–8 |
+| Scholarship | Staff set JIA / RM / IA on a submitted application; shown in CSV. No folder routing | `rules.test.ts`, E2E 8 |
 
-Latest runs: typecheck clean; unit 34/34; emulator integration + rules 26/26; Playwright 10/10.
+Latest runs: typecheck clean; unit 34/34; emulator integration + rules 27/27; Playwright 10/10.
 
 ## Not done yet (needs RAPID access or a decision)
 
-- **RAPID Firebase project:** not visible to the development account. Needed for the second Hosting site, Functions and Firestore deploy.
+- **RAPID Firebase project:** `rapid-cc35e`, new and separate from the website's project. Developer invitation sent, not yet accepted. On Spark; Blaze is needed for Functions.
 - **Drive bridge deployment:** `drive-bridge/Code.gs` must be deployed by the rapidcharity Google account. See `drive-integration.md`.
 - **Real Drive upload through Functions:** not run yet; it depends on the two items above. Drive write access to the test folder was verified separately.
-- **Scholarship type (JIA / RM / IA):** `fields.json` has no such field, so documents are not routed into those subfolders.
+- **Live bridge test:** `npm run live:drive` is ready; it runs once the bridge is deployed.
 - **Policy values:** Spring 2027 dates, privacy/consent copy, retention period, staff email list.
 
 ## Not deployed

@@ -8,7 +8,7 @@ import { getFirebaseDb, getFirebaseFunctions } from "@/lib/firebase/client";
 import { listDocuments, listSubmittedApplications, loadCycle, saveCycle } from "@/lib/application/firestore";
 import { FIELD_LABELS, answerKeys, displayValue } from "@/lib/form/display";
 import { DEFAULT_CATALOG_VERSION, DEFAULT_CYCLE_ID, FORM_VERSION, SCHEMA_VERSION, SECTION_LABELS, type SectionId } from "@/lib/validation/constants";
-import type { DocumentRecord, ScholarshipApplication, ScholarshipCycle } from "@/types/application";
+import { SCHOLARSHIP_PROGRAMS, type DocumentRecord, type ScholarshipApplication, type ScholarshipCycle, type ScholarshipProgram } from "@/types/application";
 import { buildCsv } from "./csv";
 
 type ReviewItem = { id: string; fieldKey: string; listId: string; rawText: string; applicationId: string; status: string };
@@ -134,6 +134,39 @@ function ApplicationsTab() {
   );
 }
 
+function ScholarshipPicker({ app }: { app: ScholarshipApplication }) {
+  const [value, setValue] = useState<ScholarshipProgram | "">(app.scholarshipProgram ?? "");
+  const [status, setStatus] = useState("");
+  async function change(next: ScholarshipProgram | "") {
+    setValue(next);
+    setStatus("Saving…");
+    try {
+      await updateDoc(doc(getFirebaseDb(), "scholarshipApplications", app.applicationId), { scholarshipProgram: next || null });
+      app.scholarshipProgram = next || null;
+      setStatus("Saved.");
+    } catch {
+      setValue(app.scholarshipProgram ?? "");
+      setStatus("Could not save.");
+    }
+  }
+  return (
+    <div className="field">
+      <label htmlFor="scholarshipProgram">Scholarship</label>
+      <select id="scholarshipProgram" value={value} onChange={(e) => void change(e.target.value as ScholarshipProgram | "")}>
+        <option value="">Not set</option>
+        {SCHOLARSHIP_PROGRAMS.map((p) => (
+          <option key={p} value={p}>
+            {p}
+          </option>
+        ))}
+      </select>
+      <p className="save-status" role="status" aria-live="polite">
+        {status}
+      </p>
+    </div>
+  );
+}
+
 function ApplicationDetail({ app, labels, onBack }: { app: ScholarshipApplication; labels: Map<string, string>; onBack: () => void }) {
   const [documents, setDocuments] = useState<DocumentRecord[]>([]);
   const reload = useCallback(() => listDocuments(app.applicationId).then(setDocuments), [app.applicationId]);
@@ -150,6 +183,7 @@ function ApplicationDetail({ app, labels, onBack }: { app: ScholarshipApplicatio
       <p className="hint">
         Application id {app.applicationId}. Form {app.formVersion}, catalog {app.catalogVersion}.
       </p>
+      <ScholarshipPicker app={app} />
       {FLAT.map((sectionId) => {
         const values = app.sections[sectionId] as Record<string, unknown>;
         return (

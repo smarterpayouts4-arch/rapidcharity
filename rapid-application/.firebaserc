@@ -1,11 +1,11 @@
 {
   "projects": {
-    "default": "rapid-charity-prod"
+    "default": "rapid-cc35e"
   },
   "targets": {
-    "rapid-charity-prod": {
+    "rapid-cc35e": {
       "hosting": {
-        "apply-rapidcharity": ["rapid-charity-prod-apply"]
+        "apply-rapidcharity": ["rapid-cc35e-apply"]
       }
     }
   }

@@ -73,11 +73,16 @@ export type ScholarshipApplication = {
   status: ApplicationStatus;
   receiptCode: string | null;
   needsReview: boolean;
+  /** Set by staff after submission. Metadata only: it does not change where documents are filed. */
+  scholarshipProgram?: ScholarshipProgram | null;
   sections: ApplicationSections;
   createdAt: number;
   updatedAt: number;
   submittedAt: number | null;
 };
+
+export const SCHOLARSHIP_PROGRAMS = ["JIA", "RM", "IA"] as const;
+export type ScholarshipProgram = (typeof SCHOLARSHIP_PROGRAMS)[number];
 
 export type VerificationStatus = "pending" | "verified" | "rejected";
 

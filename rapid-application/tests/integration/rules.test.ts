@@ -78,6 +78,20 @@ describe("scholarshipApplications", () => {
     });
     await assertFails(updateDoc(doc(owner(), `scholarshipApplications/${APP_ID}`), { "sections.s9_essay": {}, updatedAt: 2 }));
   });
+
+  it("lets only staff record the scholarship on a submitted application", async () => {
+    await seedDraft();
+    const asStaff = doc(staff(), `scholarshipApplications/${APP_ID}`);
+    await assertFails(updateDoc(asStaff, { scholarshipProgram: "RM" }));
+    await env.withSecurityRulesDisabled(async (ctx) => {
+      await updateDoc(doc(ctx.firestore(), `scholarshipApplications/${APP_ID}`), { status: "submitted" });
+    });
+    await assertSucceeds(updateDoc(asStaff, { scholarshipProgram: "RM" }));
+    await assertSucceeds(updateDoc(asStaff, { scholarshipProgram: null }));
+    await assertFails(updateDoc(asStaff, { scholarshipProgram: "OTHER" }));
+    await assertFails(updateDoc(asStaff, { scholarshipProgram: "JIA", status: "draft" }));
+    await assertFails(updateDoc(doc(owner(), `scholarshipApplications/${APP_ID}`), { scholarshipProgram: "IA" }));
+  });
 });
 
 describe("documents and server-only collections", () => {

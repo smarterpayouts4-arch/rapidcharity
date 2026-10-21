@@ -154,5 +154,12 @@ function fetch_(request) {
 function trash_(request) {
   var file = ownedFile_(request, 'TEST_ROOT_FOLDER_IDS');
   file.setTrashed(true);
+  var folder = applicationFolder_(root_(request.rootFolderId, 'TEST_ROOT_FOLDER_IDS'), request.applicationId, false);
+  var remaining = folder.getFiles();
+  var empty = true;
+  while (remaining.hasNext()) {
+    if (!remaining.next().isTrashed()) empty = false;
+  }
+  if (empty) folder.setTrashed(true);
   return { ok: true };
 }

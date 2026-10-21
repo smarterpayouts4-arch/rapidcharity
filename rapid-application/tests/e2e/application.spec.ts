@@ -326,12 +326,17 @@ test("8. staff export submitted applications as CSV", async ({ page }) => {
   await page.goto("/");
   await signIn(page, "staff@example.test");
   await page.goto("/admin");
-  await expect(page.getByRole("button", { name: receipt })).toBeVisible();
+  await page.getByRole("button", { name: receipt }).click();
+  await page.getByLabel("Scholarship").selectOption("RM");
+  await expect(page.getByText("Saved.")).toBeVisible();
+  await page.getByRole("button", { name: "Back to list" }).click();
   const download = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export CSV" }).click();
   const file = await download;
   const text = await (await file.createReadStream()).toArray().then((chunks) => Buffer.concat(chunks).toString("utf8"));
-  expect(text).toContain(receipt);
+  const row = text.split("\r\n").find((line) => line.includes(receipt));
+  expect(row).toContain('"RM"');
+  expect(text.split("\r\n")[0]).toContain("Scholarship");
   expect(text.split("\r\n")[0]).toContain("First name");
 });
 

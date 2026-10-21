@@ -40,6 +40,11 @@ service cloud.firestore {
         && resource.data.ownerUid == request.auth.uid
         && resource.data.status == 'draft'
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['sections', 'updatedAt']);
+      // Staff may record which scholarship a submitted application is for, and nothing else.
+      allow update: if isStaff()
+        && resource.data.status == 'submitted'
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['scholarshipProgram'])
+        && request.resource.data.scholarshipProgram in ['JIA', 'RM', 'IA', null];
       allow delete: if false;
 
       // Metadata for files stored in Google Drive. Written only by Cloud Functions.
