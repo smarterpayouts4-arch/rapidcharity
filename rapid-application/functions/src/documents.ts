@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import type { Firestore } from "firebase-admin/firestore";
 import {
   DOCUMENT_SLOTS,
+  MAX_DOCUMENT_BYTES,
   checkFile,
   documentId as makeDocumentId,
   extensionFor,
@@ -21,7 +22,7 @@ export type UploadInput = {
   dataBase64?: unknown;
 };
 
-const MAX_BASE64_CHARS = Math.ceil((5 * 1024 * 1024 * 4) / 3) + 8;
+const MAX_BASE64_CHARS = Math.ceil((MAX_DOCUMENT_BYTES * 4) / 3) + 8;
 
 function sha256Hex(data: Buffer | string): string {
   return createHash("sha256").update(data).digest("hex");
@@ -133,6 +134,7 @@ export async function handleUpload(
       mime: check.mime,
       sha256,
       dataBase64: bytes.toString("base64"),
+      folder: app.driveFolder ?? "INTAKE",
     });
   } catch (err) {
     const code = err instanceof DriveBridgeError ? err.code : "drive-error";

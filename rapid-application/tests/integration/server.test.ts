@@ -4,6 +4,7 @@ import { initializeApp, type App } from "firebase-admin/app";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
 import { handleGetDocument, handleSetVerification, handleUpload } from "../../functions/src/documents";
 import { handleSubmit } from "../../functions/src/submitApplication";
+import { handleSetScholarshipType } from "../../functions/src/classify";
 import { httpDriveBridge, signBridgeRequest, type DriveBridge } from "../../functions/src/driveBridge";
 import { createDraftApplication } from "../../src/lib/application/emptyApplication";
 import type { ApplicationSections, DocumentRecord } from "../../src/types/application";
@@ -68,6 +69,7 @@ afterAll(async () => {
 beforeEach(async () => {
   await clearFirestore();
   fake.files.length = 0;
+  fake.placement.clear();
   fake.state.failNextUploads = 0;
   await seedCycle();
 });
@@ -97,7 +99,7 @@ describe("document upload", () => {
     expect(record).toMatchObject({ applicationId: id, slot: "docApplicantId", uploadStatus: "stored", verificationStatus: "pending", contentType: "application/pdf" });
     expect(record?.driveFileId).toMatch(/^fake_/);
     expect(fake.files).toHaveLength(1);
-    expect(fake.files[0]!.folder).toBe(`${ROOT}/${id}`);
+    expect(fake.files[0]!.folder).toBe(`${ROOT}/INTAKE/${id}`);
     expect(fake.files[0]!.name).toMatch(/^APPLICANT-ID-1-[0-9a-f]{16}\.pdf$/);
     expect(JSON.stringify(record)).not.toMatch(/Ayesha|99999/);
   });
@@ -273,5 +275,62 @@ describe("staff document review", () => {
     await expect(handleSetVerification(db, OWNER, { applicationId: id, documentId: "docApplicantId_1", decision: "verified" })).rejects.toMatchObject({
       code: "permission-denied",
     });
+  });
+});
+
+describe("scholarship classification and Drive filing", () => {
+  async function submitted() {
+    const id = await seedApplication(OWNER.uid);
+    await uploadRequired(id);
+    await handleSubmit(db, OWNER, { applicationId: id }, DUP_SECRET);
+    return id;
+  }
+  const classify = (id: string, scholarshipType: unknown, actor = STAFF) =>
+    handleSetScholarshipType(db, bridge, ROOT, actor, { applicationId: id, scholarshipType });
+  const appData = async (id: string) => (await db.doc(`scholarshipApplications/${id}`).get()).data()!;
+
+  it.each(["IA", "RIA", "RM"] as const)("files a %s application under its folder and keeps the same Drive file ids", async (type) => {
+    const id = await submitted();
+    const before = fake.files.map((f) => f.fileId).sort();
+    expect(fake.files.every((f) => f.folder === `${ROOT}/INTAKE/${id}`)).toBe(true);
+    expect(await classify(id, type)).toEqual({ scholarshipType: type, driveFolder: type });
+    expect(await appData(id)).toMatchObject({ scholarshipType: type, driveFolder: type, classifiedBy: STAFF.uid });
+    expect(fake.files.every((f) => f.folder === `${ROOT}/${type}/${id}`)).toBe(true);
+    expect(fake.files.map((f) => f.fileId).sort()).toEqual(before);
+    const file = await handleGetDocument(db, bridge, ROOT, STAFF, { applicationId: id, documentId: "docApplicantId_1" });
+    expect(Buffer.from(file.dataBase64, "base64").equals(PDF_BYTES)).toBe(true);
+  });
+
+  it("reclassifies and unassigns without losing or duplicating files, and is safe to repeat", async () => {
+    const id = await submitted();
+    const count = fake.files.length;
+    await classify(id, "IA");
+    await classify(id, "IA");
+    await classify(id, "RM");
+    expect(fake.files).toHaveLength(count);
+    expect(fake.files.every((f) => f.folder === `${ROOT}/RM/${id}`)).toBe(true);
+    await classify(id, null);
+    expect(await appData(id)).toMatchObject({ scholarshipType: null, driveFolder: "INTAKE" });
+    expect(fake.files.every((f) => f.folder === `${ROOT}/INTAKE/${id}`)).toBe(true);
+    const actions = (await db.collection("scholarshipAudit").where("action", "==", "application.classified").get()).docs.map((d) => d.get("detail"));
+    expect(actions).toEqual(expect.arrayContaining(["IA", "RM", "unassigned"]));
+  });
+
+  it("records the type even when Drive fails, shows filing pending, and a retry completes it", async () => {
+    const id = await submitted();
+    const broken: DriveBridge = { ...bridge, file: async () => Promise.reject(new Error("down")) };
+    await expect(handleSetScholarshipType(db, broken, ROOT, STAFF, { applicationId: id, scholarshipType: "RIA" })).rejects.toMatchObject({ code: "unavailable" });
+    expect(await appData(id)).toMatchObject({ scholarshipType: "RIA", driveFolder: "INTAKE" });
+    await classify(id, "RIA");
+    expect(await appData(id)).toMatchObject({ scholarshipType: "RIA", driveFolder: "RIA" });
+  });
+
+  it("rejects other codes, drafts and non-staff callers", async () => {
+    const id = await submitted();
+    for (const bad of ["JIA", "ia", "OTHER", 1]) await expect(classify(id, bad)).rejects.toMatchObject({ code: "invalid-argument" });
+    await expect(classify(id, "IA", OWNER)).rejects.toMatchObject({ code: "permission-denied" });
+    const draft = await seedApplication(OWNER.uid);
+    await expect(classify(draft, "IA")).rejects.toMatchObject({ code: "failed-precondition" });
+    expect((await appData(id)).scholarshipType).toBeNull();
   });
 });

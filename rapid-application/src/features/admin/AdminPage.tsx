@@ -1,15 +1,31 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { collection, doc, getDocs, orderBy, query, updateDoc, where } from "firebase/firestore";
-import { httpsCallable } from "firebase/functions";
 import { useAuth } from "@/context/AuthContext";
 import { useLabels } from "@/hooks/useLabels";
-import { getFirebaseDb, getFirebaseFunctions } from "@/lib/firebase/client";
+import { getFirebaseDb } from "@/lib/firebase/client";
+import { callServer } from "@/lib/firebase/server";
 import { listDocuments, listSubmittedApplications, loadCycle, saveCycle } from "@/lib/application/firestore";
 import { FIELD_LABELS, answerKeys, displayValue } from "@/lib/form/display";
 import { DEFAULT_CATALOG_VERSION, DEFAULT_CYCLE_ID, FORM_VERSION, SCHEMA_VERSION, SECTION_LABELS, type SectionId } from "@/lib/validation/constants";
-import { SCHOLARSHIP_PROGRAMS, type DocumentRecord, type ScholarshipApplication, type ScholarshipCycle, type ScholarshipProgram } from "@/types/application";
-import { buildCsv } from "./csv";
+import {
+  SCHOLARSHIP_TYPES,
+  type DocumentRecord,
+  type DriveFolder,
+  type ScholarshipApplication,
+  type ScholarshipCycle,
+  type ScholarshipType,
+} from "@/types/application";
+import { buildExport, toCsv, toXlsx } from "./export";
+
+function download(data: BlobPart, type: string, name: string) {
+  const url = URL.createObjectURL(new Blob([data], { type }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = name;
+  link.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
 
 type ReviewItem = { id: string; fieldKey: string; listId: string; rawText: string; applicationId: string; status: string };
 
@@ -25,7 +41,7 @@ function useStaffGate() {
       let token = await user.getIdTokenResult();
       if (token.claims.staff !== true) {
         try {
-          await httpsCallable(getFirebaseFunctions(), "claimStaffAccess")({});
+          await callServer("claimStaffAccess", {});
           token = await user.getIdTokenResult(true);
         } catch {
           /* not on the staff list */
@@ -71,45 +87,129 @@ export function AdminPage() {
   );
 }
 
+type TypeFilter = "all" | ScholarshipType | "unassigned";
+
 function ApplicationsTab() {
   const labels = useLabels();
-  const [apps, setApps] = useState<ScholarshipApplication[] | null>(null);
+  const [cycles, setCycles] = useState<string[]>([DEFAULT_CYCLE_ID]);
+  const [cycleId, setCycleId] = useState(DEFAULT_CYCLE_ID);
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
+  const [reloads, setReloads] = useState(0);
+  const [loaded, setLoaded] = useState<{ key: string; apps: ScholarshipApplication[] } | null>(null);
   const [selected, setSelected] = useState<ScholarshipApplication | null>(null);
+  const listKey = `${cycleId}|${reloads}`;
+  const apps = loaded?.key === listKey ? loaded.apps : null;
   const [error, setError] = useState<string | null>(null);
+  const [exporting, setExporting] = useState(false);
 
   useEffect(() => {
-    listSubmittedApplications(DEFAULT_CYCLE_ID)
-      .then(setApps)
-      .catch(() => setError("Could not load applications."));
+    void getDocs(collection(getFirebaseDb(), "scholarshipCycles"))
+      .then((snaps) => setCycles([...new Set([DEFAULT_CYCLE_ID, ...snaps.docs.map((d) => d.id)])]))
+      .catch(() => undefined);
   }, []);
 
-  async function exportCsv() {
-    if (!apps) return;
-    const docs = await Promise.all(apps.map((a) => listDocuments(a.applicationId)));
-    const blob = new Blob([buildCsv(apps, docs, labels)], { type: "text/csv;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = `rapid-${DEFAULT_CYCLE_ID}-applications.csv`;
-    link.click();
-    URL.revokeObjectURL(url);
+  useEffect(() => {
+    listSubmittedApplications(listKey.split("|")[0]!)
+      .then((list) => setLoaded({ key: listKey, apps: list }))
+      .catch(() => setError("Could not load applications."));
+  }, [listKey]);
+
+  const shown = useMemo(
+    () =>
+      (apps ?? []).filter((a) =>
+        typeFilter === "all" ? true : typeFilter === "unassigned" ? !a.scholarshipType : a.scholarshipType === typeFilter,
+      ),
+    [apps, typeFilter],
+  );
+
+  async function exportAs(format: "xlsx" | "csv") {
+    setExporting(true);
+    try {
+      const docs = await Promise.all(shown.map((a) => listDocuments(a.applicationId)));
+      const sheets = buildExport(shown, docs, labels);
+      const base = `rapid-${cycleId}-${typeFilter}`;
+      if (format === "xlsx") {
+        download(await toXlsx(sheets), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", `${base}.xlsx`);
+      } else {
+        download(toCsv(sheets[0]!), "text/csv;charset=utf-8", `${base}-applications.csv`);
+        download(toCsv(sheets[1]!), "text/csv;charset=utf-8", `${base}-results.csv`);
+        download(toCsv(sheets[2]!), "text/csv;charset=utf-8", `${base}-documents.csv`);
+      }
+    } catch {
+      setError("Could not build the export.");
+    } finally {
+      setExporting(false);
+    }
   }
 
   if (error) return <p className="error-text">{error}</p>;
-  if (!apps) return <p>Loading applications…</p>;
-  if (selected) return <ApplicationDetail app={selected} labels={labels} onBack={() => setSelected(null)} />;
+  if (selected) {
+    return (
+      <ApplicationDetail
+        app={selected}
+        labels={labels}
+        onBack={() => {
+          setSelected(null);
+          setReloads((n) => n + 1);
+        }}
+      />
+    );
+  }
   return (
     <section>
-      <h3>Submitted applications ({apps.length})</h3>
-      <button type="button" className="btn secondary" onClick={() => void exportCsv()} disabled={!apps.length}>
-        Export CSV
-      </button>
-      <table className="admin-table">
+      <div className="button-row">
+        <div className="field">
+          <label htmlFor="filter-cycle">Application round</label>
+          <select id="filter-cycle" value={cycleId} onChange={(e) => setCycleId(e.target.value)}>
+            {cycles.map((c) => (
+              <option key={c} value={c}>
+                {c}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="field">
+          <label htmlFor="filter-type">Scholarship type</label>
+          <select id="filter-type" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as TypeFilter)}>
+            <option value="all">All</option>
+            {SCHOLARSHIP_TYPES.map((t) => (
+              <option key={t} value={t}>
+                {t}
+              </option>
+            ))}
+            <option value="unassigned">Unassigned</option>
+          </select>
+        </div>
+      </div>
+      {!apps ? (
+        <p>Loading applications…</p>
+      ) : (
+        <>
+          <h3>Submitted applications ({shown.length})</h3>
+          <div className="button-row">
+            <button type="button" className="btn secondary" onClick={() => void exportAs("xlsx")} disabled={!shown.length || exporting}>
+              Export Excel (.xlsx)
+            </button>
+            <button type="button" className="btn secondary" onClick={() => void exportAs("csv")} disabled={!shown.length || exporting}>
+              Export CSV
+            </button>
+          </div>
+          <ApplicationTable apps={shown} onOpen={setSelected} />
+        </>
+      )}
+    </section>
+  );
+}
+
+function ApplicationTable({ apps, onOpen }: { apps: ScholarshipApplication[]; onOpen: (a: ScholarshipApplication) => void }) {
+  return (
+    <table className="admin-table">
         <thead>
           <tr>
             <th scope="col">Receipt</th>
             <th scope="col">Name</th>
             <th scope="col">Submitted</th>
+            <th scope="col">Scholarship</th>
             <th scope="col">Needs review</th>
           </tr>
         </thead>
@@ -117,7 +217,7 @@ function ApplicationsTab() {
           {apps.map((a) => (
             <tr key={a.applicationId}>
               <td>
-                <button type="button" className="link-button" onClick={() => setSelected(a)}>
+                <button type="button" className="link-button" onClick={() => onOpen(a)}>
                   {a.receiptCode}
                 </button>
               </td>
@@ -125,41 +225,58 @@ function ApplicationsTab() {
                 {String(a.sections.s1_about.firstName ?? "")} {String(a.sections.s1_about.lastName ?? "")}
               </td>
               <td>{a.submittedAt ? new Date(a.submittedAt).toLocaleDateString("en-PK") : ""}</td>
+              <td>{a.scholarshipType ?? "Unassigned"}</td>
               <td>{a.needsReview ? "Yes" : ""}</td>
             </tr>
           ))}
         </tbody>
-      </table>
-    </section>
+    </table>
   );
 }
 
+function filingText(type: ScholarshipType | null, folder: DriveFolder): string {
+  const expected = type ?? "INTAKE";
+  return folder === expected ? `Documents filed in Drive folder ${folder}.` : `Drive filing pending (documents still in ${folder}). Choose the type again to retry.`;
+}
+
 function ScholarshipPicker({ app }: { app: ScholarshipApplication }) {
-  const [value, setValue] = useState<ScholarshipProgram | "">(app.scholarshipProgram ?? "");
+  const [value, setValue] = useState<ScholarshipType | "">(app.scholarshipType ?? "");
+  const [folder, setFolder] = useState<DriveFolder>(app.driveFolder ?? "INTAKE");
   const [status, setStatus] = useState("");
-  async function change(next: ScholarshipProgram | "") {
+  const [busy, setBusy] = useState(false);
+  async function change(next: ScholarshipType | "") {
     setValue(next);
-    setStatus("Saving…");
+    setBusy(true);
+    setStatus("Saving and filing documents…");
     try {
-      await updateDoc(doc(getFirebaseDb(), "scholarshipApplications", app.applicationId), { scholarshipProgram: next || null });
-      app.scholarshipProgram = next || null;
+      const out = await callServer<{ scholarshipType: ScholarshipType | null; driveFolder: DriveFolder }>(
+        "setScholarshipType",
+        { applicationId: app.applicationId, scholarshipType: next || null },
+        150_000,
+      );
+      setValue(out.scholarshipType ?? "");
+      setFolder(out.driveFolder);
       setStatus("Saved.");
-    } catch {
-      setValue(app.scholarshipProgram ?? "");
-      setStatus("Could not save.");
+    } catch (err) {
+      setStatus(err instanceof Error ? err.message : "Could not save.");
+    } finally {
+      setBusy(false);
     }
   }
   return (
     <div className="field">
-      <label htmlFor="scholarshipProgram">Scholarship</label>
-      <select id="scholarshipProgram" value={value} onChange={(e) => void change(e.target.value as ScholarshipProgram | "")}>
-        <option value="">Not set</option>
-        {SCHOLARSHIP_PROGRAMS.map((p) => (
+      <label htmlFor="scholarshipType">Scholarship type</label>
+      <select id="scholarshipType" value={value} disabled={busy} onChange={(e) => void change(e.target.value as ScholarshipType | "")}>
+        <option value="">Unassigned</option>
+        {SCHOLARSHIP_TYPES.map((p) => (
           <option key={p} value={p}>
             {p}
           </option>
         ))}
       </select>
+      <p className="hint" data-testid="filing">
+        {filingText(value || null, folder)}
+      </p>
       <p className="save-status" role="status" aria-live="polite">
         {status}
       </p>
@@ -262,8 +379,11 @@ function DocumentRow({ app, record, onChanged }: { app: ScholarshipApplication; 
     setBusy(true);
     setError(null);
     try {
-      const fn = httpsCallable<object, { contentType: string; dataBase64: string }>(getFirebaseFunctions(), "getScholarshipDocument", { timeout: 150_000 });
-      const { data } = await fn({ applicationId: app.applicationId, documentId: record.documentId });
+      const data = await callServer<{ contentType: string; dataBase64: string }>(
+        "getScholarshipDocument",
+        { applicationId: app.applicationId, documentId: record.documentId },
+        150_000,
+      );
       const bytes = Uint8Array.from(atob(data.dataBase64), (c) => c.charCodeAt(0));
       setPreview({ url: URL.createObjectURL(new Blob([bytes], { type: data.contentType })), type: data.contentType });
     } catch {
@@ -277,7 +397,7 @@ function DocumentRow({ app, record, onChanged }: { app: ScholarshipApplication; 
     setBusy(true);
     setError(null);
     try {
-      await httpsCallable(getFirebaseFunctions(), "setScholarshipDocumentVerification")({
+      await callServer("setScholarshipDocumentVerification", {
         applicationId: app.applicationId,
         documentId: record.documentId,
         decision,

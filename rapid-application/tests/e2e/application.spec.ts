@@ -79,8 +79,9 @@ async function pickFromCatalog(page: Page, id: string, typed: string, option: Re
   await page.getByRole("listbox").getByRole("option", { name: option }).first().click();
 }
 
-async function driveFiles(): Promise<{ folder: string; name: string }[]> {
-  return (await fetch("http://127.0.0.1:5199/__files")).json() as Promise<{ folder: string; name: string }[]>;
+type DriveFile = { fileId: string; folder: string; name: string };
+async function driveFiles(): Promise<DriveFile[]> {
+  return (await fetch("http://127.0.0.1:5199/__files")).json() as Promise<DriveFile[]>;
 }
 
 test("1. newly admitted student completes the whole form in the browser", async ({ page }) => {
@@ -279,7 +280,7 @@ test("6. uploads go to the private test folder under an opaque application folde
   await uploadIn(page, "docApplicantId");
   await page.locator('[data-slot="docPhoto"] input[type="file"]').setInputFiles({ name: "photo.pdf", mimeType: "application/pdf", buffer: PDF_BYTES });
   await expect(page.locator('[data-slot="docPhoto"]').getByRole("alert")).toContainText("JPG or PNG");
-  const mine = (await driveFiles()).filter((f) => f.folder === `emulator-test-root/${id}`);
+  const mine = (await driveFiles()).filter((f) => f.folder === `emulator-test-root/INTAKE/${id}`);
   expect(mine).toHaveLength(1);
   expect(mine[0]!.name).toMatch(/^APPLICANT-ID-1-[0-9a-f]{16}\.pdf$/);
   expect(JSON.stringify(mine)).not.toMatch(/Upload|99999/);
@@ -321,23 +322,43 @@ test("7. staff open, verify and reject documents", async ({ page }) => {
   await expect(photo.getByTestId("verification")).toHaveText("rejected");
 });
 
-test("8. staff export submitted applications as CSV", async ({ page }) => {
-  const { receipt } = await submittedApplication(page, "forexport");
+test("8. staff classify as RIA, documents move in Drive, and export Excel and CSV", async ({ page }) => {
+  const { id, receipt } = await submittedApplication(page, "forexport");
+  const before = (await driveFiles()).filter((f) => f.folder === `emulator-test-root/INTAKE/${id}`).map((f) => f.fileId).sort();
+  expect(before.length).toBeGreaterThan(0);
   await page.goto("/");
   await signIn(page, "staff@example.test");
   await page.goto("/admin");
   await page.getByRole("button", { name: receipt }).click();
-  await page.getByLabel("Scholarship").selectOption("RM");
+  await page.getByLabel("Scholarship type").selectOption("RIA");
   await expect(page.getByText("Saved.")).toBeVisible();
+  await expect(page.getByTestId("filing")).toHaveText("Documents filed in Drive folder RIA.");
+  const after = (await driveFiles()).filter((f) => f.folder === `emulator-test-root/RIA/${id}`).map((f) => f.fileId).sort();
+  expect(after).toEqual(before);
   await page.getByRole("button", { name: "Back to list" }).click();
-  const download = page.waitForEvent("download");
-  await page.getByRole("button", { name: "Export CSV" }).click();
-  const file = await download;
-  const text = await (await file.createReadStream()).toArray().then((chunks) => Buffer.concat(chunks).toString("utf8"));
-  const row = text.split("\r\n").find((line) => line.includes(receipt));
-  expect(row).toContain('"RM"');
-  expect(text.split("\r\n")[0]).toContain("Scholarship");
-  expect(text.split("\r\n")[0]).toContain("First name");
+  await page.getByLabel("Scholarship type").selectOption("RIA");
+  await expect(page.getByRole("row", { name: new RegExp(receipt) })).toContainText("RIA");
+
+  const readDownload = async (button: string) => {
+    const download = page.waitForEvent("download");
+    await page.getByRole("button", { name: button }).click();
+    const file = await download;
+    return Buffer.concat(await (await file.createReadStream()).toArray());
+  };
+  const ExcelJS = (await import("exceljs")).default;
+  const book = new ExcelJS.Workbook();
+  await book.xlsx.load(await readDownload("Export Excel (.xlsx)"));
+  expect(book.worksheets.map((w) => w.name)).toEqual(["Applications", "Academic results", "Documents"]);
+  const sheet = book.getWorksheet("Applications")!;
+  const header = (sheet.getRow(1).values as unknown[]).map(String);
+  expect(header).toEqual(expect.arrayContaining(["Scholarship type", "First name"]));
+  const rows = Array.from({ length: sheet.rowCount - 1 }, (_, i) => JSON.stringify(sheet.getRow(i + 2).values));
+  expect(rows.every((r) => r.includes('"RIA"'))).toBe(true);
+  expect(rows.some((r) => r.includes(receipt))).toBe(true);
+  expect(book.getWorksheet("Documents")!.rowCount).toBeGreaterThan(1);
+
+  const csv = (await readDownload("Export CSV")).toString("utf8");
+  expect(csv.split("\r\n").find((line) => line.includes(receipt))).toContain('"RIA"');
 });
 
 test("9. other accounts cannot open an application or the admin area", async ({ page, browser }) => {

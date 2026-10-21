@@ -20,6 +20,7 @@
     "catalog:build": "tsx scripts/catalog/build.ts"
   },
   "dependencies": {
+    "exceljs": "^4.4.0",
     "firebase": "^12.4.0",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
@@ -34,7 +35,9 @@
     "@types/node": "^24.0.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "@vercel/nft": "^1.11.0",
     "@vitejs/plugin-react": "^5.0.4",
+    "esbuild": "^0.28.2",
     "firebase-admin": "^13.10.0",
     "jsdom": "^27.0.0",
     "tsx": "^4.23.15",

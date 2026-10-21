@@ -6,6 +6,10 @@
  * must carry an HMAC-SHA256 signature made with BRIDGE_SECRET, a timestamp no older than five
  * minutes, and a single-use nonce. The script only touches folders inside ALLOWED_ROOT_FOLDER_IDS.
  *
+ * Layout under each cycle root: INTAKE | IA | RIA | RM, then one folder per opaque application id.
+ * New uploads go to INTAKE; the `file` action moves the whole application folder when staff classify
+ * it, so Drive file ids never change and nothing is copied.
+ *
  * Script properties (Project Settings → Script properties):
  *   BRIDGE_SECRET            at least 32 random characters; same value as the DRIVE_BRIDGE_SECRET Functions secret
  *   ALLOWED_ROOT_FOLDER_IDS  comma-separated Drive folder ids (cycle folders for production and test)
@@ -18,12 +22,14 @@ var MIME = { 'application/pdf': 'pdf', 'image/jpeg': 'jpg', 'image/png': 'png' }
 var APPLICATION_ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/;
 var FILE_NAME = /^[A-Z0-9-]{2,48}-[1-3]-[0-9a-f]{16}\.(pdf|jpg|png)$/;
 var FILE_ID = /^[A-Za-z0-9_-]{10,100}$/;
+var FOLDERS = ['INTAKE', 'IA', 'RIA', 'RM'];
 
 function doPost(e) {
   try {
     var request = verify_(e && e.postData ? e.postData.contents : '');
     if (request.action === 'upload') return json_(upload_(request));
     if (request.action === 'fetch') return json_(fetch_(request));
+    if (request.action === 'file') return json_(file_(request));
     if (request.action === 'trash') return json_(trash_(request));
     if (request.action === 'ping') return json_({ ok: true });
     return json_({ ok: false, error: 'unknown-action' });
@@ -93,26 +99,40 @@ function root_(rootFolderId, listName) {
   return DriveApp.getFolderById(rootFolderId);
 }
 
-function applicationFolder_(root, applicationId, create) {
-  if (!APPLICATION_ID.test(applicationId)) throw new Error('bad-application');
-  var folders = root.getFoldersByName(applicationId);
+function child_(parent, name, create) {
+  var folders = parent.getFoldersByName(name);
   while (folders.hasNext()) {
     var folder = folders.next();
     if (!folder.isTrashed()) return folder;
   }
-  return create ? root.createFolder(applicationId) : null;
+  return create ? parent.createFolder(name) : null;
 }
 
-/** Returns the file only when it sits directly inside root/<applicationId>/. */
+function bucket_(root, name, create) {
+  if (FOLDERS.indexOf(name) === -1) throw new Error('bad-folder');
+  return child_(root, name, create);
+}
+
+/** Finds root/<INTAKE|IA|RIA|RM>/<applicationId>/ wherever it currently is. */
+function applicationFolder_(root, applicationId) {
+  if (!APPLICATION_ID.test(applicationId)) throw new Error('bad-application');
+  for (var i = 0; i < FOLDERS.length; i++) {
+    var bucket = bucket_(root, FOLDERS[i], false);
+    var folder = bucket ? child_(bucket, applicationId, false) : null;
+    if (folder) return { folder: folder, bucket: FOLDERS[i] };
+  }
+  return null;
+}
+
+/** Returns the file only when it sits directly inside the application's folder. */
 function ownedFile_(request, listName) {
   if (!FILE_ID.test(request.fileId || '')) throw new Error('bad-file');
-  var root = root_(request.rootFolderId, listName);
-  var folder = applicationFolder_(root, request.applicationId, false);
-  if (!folder) throw new Error('not-found');
+  var found = applicationFolder_(root_(request.rootFolderId, listName), request.applicationId);
+  if (!found) throw new Error('not-found');
   var file = DriveApp.getFileById(request.fileId);
   var parents = file.getParents();
   while (parents.hasNext()) {
-    if (parents.next().getId() === folder.getId()) return file;
+    if (parents.next().getId() === found.folder.getId()) return { file: file, found: found };
   }
   throw new Error('not-found');
 }
@@ -129,11 +149,12 @@ function upload_(request) {
   var lock = LockService.getScriptLock();
   lock.waitLock(30000);
   try {
-    var folder = applicationFolder_(root, request.applicationId, true);
+    var found = applicationFolder_(root, request.applicationId);
+    var folder = found ? found.folder : bucket_(root, request.folder || 'INTAKE', true).createFolder(request.applicationId);
     var existing = folder.getFilesByName(request.fileName);
     while (existing.hasNext()) {
-      var found = existing.next();
-      if (!found.isTrashed()) return { ok: true, fileId: found.getId(), created: false };
+      var match = existing.next();
+      if (!match.isTrashed()) return { ok: true, fileId: match.getId(), created: false };
     }
     var file = folder.createFile(Utilities.newBlob(bytes, request.mime, request.fileName));
     if (file.getSharingAccess() !== DriveApp.Access.PRIVATE) file.setSharing(DriveApp.Access.PRIVATE, DriveApp.Permission.NONE);
@@ -145,16 +166,32 @@ function upload_(request) {
 }
 
 function fetch_(request) {
-  var file = ownedFile_(request);
+  var file = ownedFile_(request).file;
   if (file.getSize() > MAX_BYTES) throw new Error('bad-size');
   var blob = file.getBlob();
   return { ok: true, mime: blob.getContentType(), dataBase64: Utilities.base64Encode(blob.getBytes()) };
 }
 
+/** Moves the application folder into INTAKE, IA, RIA or RM. Safe to repeat. */
+function file_(request) {
+  var root = root_(request.rootFolderId);
+  var lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+    var target = bucket_(root, request.folder, true);
+    var found = applicationFolder_(root, request.applicationId);
+    if (!found || found.bucket === request.folder) return { ok: true, folder: request.folder, moved: false };
+    found.folder.moveTo(target);
+    return { ok: true, folder: request.folder, moved: true };
+  } finally {
+    lock.releaseLock();
+  }
+}
+
 function trash_(request) {
-  var file = ownedFile_(request, 'TEST_ROOT_FOLDER_IDS');
-  file.setTrashed(true);
-  var folder = applicationFolder_(root_(request.rootFolderId, 'TEST_ROOT_FOLDER_IDS'), request.applicationId, false);
+  var owned = ownedFile_(request, 'TEST_ROOT_FOLDER_IDS');
+  owned.file.setTrashed(true);
+  var folder = owned.found.folder;
   var remaining = folder.getFiles();
   var empty = true;
   while (remaining.hasNext()) {

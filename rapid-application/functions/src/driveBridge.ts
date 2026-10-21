@@ -7,13 +7,18 @@ export type BridgeUpload = {
   mime: string;
   sha256: string;
   dataBase64: string;
+  /** Folder for a new application folder; an existing one stays where it is. */
+  folder: string;
 };
 
 export type BridgeFetch = { rootFolderId: string; applicationId: string; fileId: string };
+export type BridgeFile = { rootFolderId: string; applicationId: string; folder: string };
 
 export type DriveBridge = {
   upload(p: BridgeUpload): Promise<{ fileId: string; created: boolean }>;
   fetch(p: BridgeFetch): Promise<{ mime: string; dataBase64: string }>;
+  /** Moves the application folder to INTAKE, IA, RIA or RM. File ids are unchanged. */
+  file(p: BridgeFile): Promise<{ folder: string; moved: boolean }>;
 };
 
 export class DriveBridgeError extends Error {
@@ -60,5 +65,6 @@ export function httpDriveBridge(cfg: BridgeConfig): DriveBridge {
   return {
     upload: (p) => call(cfg, "upload", p),
     fetch: (p) => call(cfg, "fetch", p),
+    file: (p) => call(cfg, "file", p),
   };
 }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { checkFile, documentId, parseDocumentId, sniffMime } from "@/lib/form/documents";
-import { buildCsv, csvCell } from "@/features/admin/csv";
+import { buildExport, safeText, toCsv, toXlsx } from "@/features/admin/export";
 import { PDF_BYTES, PNG_BYTES, TEXT_BYTES } from "../support/fixtures";
 
 describe("file checks", () => {
@@ -31,41 +31,75 @@ describe("document ids", () => {
   });
 });
 
-describe("CSV export", () => {
-  it("neutralises spreadsheet formulas and quotes cells", () => {
-    expect(csvCell("=HYPERLINK(1)")).toBe(`"'=HYPERLINK(1)"`);
-    expect(csvCell('say "hi"')).toBe(`"say ""hi"""`);
+function exportApp(over: Record<string, unknown>) {
+  return {
+    applicationId: "a",
+    cycleId: "spring-2027",
+    status: "submitted",
+    receiptCode: "RAPID-2027-TEST",
+    submittedAt: 0,
+    needsReview: false,
+    scholarshipType: "RIA",
+    driveFolder: "RIA",
+    sections: {
+      s1_about: { firstName: "=cmd|' /C calc'!A0", religion: "other", religionOther: "Typed faith" },
+      s2_contact: {},
+      s3_family: {},
+      s4_church: {},
+      s5_study: { institutionId: { id: null, labelSnapshot: null, rawText: "My College", source: "other", reviewStatus: "pending" } },
+      s6_terms: { termResults: [{ id: "t1", term: "term_1", resultFormat: "rf_gpa", resultFormatOther: "", gpaScale: "gs_4", gpaScaleOther: null, sgpa: 3.5, cgpa: 3.4, percentage: null, marksObtained: null, marksTotal: null, gradeScheme: "", letterGrade: "", letterGradeOther: "", division: "", divisionOther: "", passFail: "", passFailOther: "" }] },
+      s7_prior: { priorEducation: [] },
+      s8_fees: {},
+      s9_essay: {},
+      s10_refs: {},
+      s11_docs: {},
+      s12_submit: {},
+    },
+    ...over,
+  } as never;
+}
+
+describe("spreadsheet export", () => {
+  const docs = [[{ label: "Recent photo", index: 1, slot: "docPhoto", uploadStatus: "stored", verificationStatus: "verified", verificationNote: "", uploadedAt: 0, verifiedAt: 0, driveFileId: "SECRET-DRIVE-ID" } as never]];
+
+  it("builds applications, results and documents sheets", () => {
+    const [apps, results, documents] = buildExport([exportApp({})], docs, new Map([["term_1", "Term 1"]]));
+    expect(apps!.name).toBe("Applications");
+    expect(apps!.rows[0]).toContain("RIA");
+    expect(results!.rows).toHaveLength(1);
+    expect(results!.rows[0]).toContain("Term 1");
+    expect(results!.rows[0]).toContain(3.5);
+    expect(documents!.rows[0]).toContain("verified");
+    expect(JSON.stringify([apps, results, documents])).not.toContain("SECRET-DRIVE-ID");
   });
-  it("writes one row per application with document statuses", () => {
-    const csv = buildCsv(
-      [
-        {
-          applicationId: "a",
-          receiptCode: "RAPID-2027-TEST",
-          submittedAt: 0,
-          needsReview: false,
-          sections: {
-            s1_about: { firstName: "Test" },
-            s2_contact: {},
-            s3_family: {},
-            s4_church: {},
-            s5_study: {},
-            s6_terms: { termResults: [] },
-            s7_prior: { priorEducation: [] },
-            s8_fees: {},
-            s9_essay: {},
-            s10_refs: {},
-            s11_docs: {},
-            s12_submit: {},
-          },
-        } as never,
-      ],
-      [[{ slot: "docPhoto", uploadStatus: "stored", verificationStatus: "verified" } as never]],
-      new Map(),
-    );
-    const lines = csv.trim().split("\r\n");
-    expect(lines).toHaveLength(2);
-    expect(lines[1]).toContain('"RAPID-2027-TEST"');
-    expect(lines[1]).toContain('"verified"');
+
+  it("keeps the standard value and the applicant's own wording", () => {
+    const [apps] = buildExport([exportApp({})], docs, new Map());
+    const col = (title: string) => apps!.rows[0]![apps!.header.indexOf(title)];
+    expect(apps!.header).toContain("Religion (as typed)");
+    expect(col("Religion")).toBe("Other");
+    expect(col("Religion (as typed)")).toBe("Typed faith");
+  });
+
+  it("neutralises spreadsheet formulas", () => {
+    expect(safeText("=HYPERLINK(1)")).toBe("'=HYPERLINK(1)");
+    expect(safeText("@SUM(A1)")).toBe("'@SUM(A1)");
+    expect(safeText("Plain")).toBe("Plain");
+    const csv = toCsv(buildExport([exportApp({})], docs, new Map())[0]!);
+    expect(csv).toContain(`"'=cmd|' /C calc'!A0"`);
+    expect(csv.startsWith("\uFEFF")).toBe(true);
+  });
+
+  it("writes an .xlsx workbook that reads back", async () => {
+    const ExcelJS = (await import("exceljs")).default;
+    const buffer = await toXlsx(buildExport([exportApp({}), exportApp({ applicationId: "b", scholarshipType: null })], docs, new Map()));
+    const book = new ExcelJS.Workbook();
+    await book.xlsx.load(buffer);
+    expect(book.worksheets.map((w) => w.name)).toEqual(["Applications", "Academic results", "Documents"]);
+    const sheet = book.getWorksheet("Applications")!;
+    expect(sheet.rowCount).toBe(3);
+    const values = JSON.stringify(sheet.getRow(3).values);
+    expect(values).toContain("Unassigned");
+    expect(sheet.getRow(2).getCell(9).type).not.toBe(ExcelJS.ValueType.Formula);
   });
 });

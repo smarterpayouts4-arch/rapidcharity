@@ -73,16 +73,22 @@ export type ScholarshipApplication = {
   status: ApplicationStatus;
   receiptCode: string | null;
   needsReview: boolean;
-  /** Set by staff after submission. Metadata only: it does not change where documents are filed. */
-  scholarshipProgram?: ScholarshipProgram | null;
+  /** Set by staff after submission through `setScholarshipType`; null until classified. */
+  scholarshipType: ScholarshipType | null;
+  /** Drive folder the application's documents currently sit in, under the cycle root. */
+  driveFolder: DriveFolder;
+  classifiedBy?: string | null;
+  classifiedAt?: number | null;
   sections: ApplicationSections;
   createdAt: number;
   updatedAt: number;
   submittedAt: number | null;
 };
 
-export const SCHOLARSHIP_PROGRAMS = ["JIA", "RM", "IA"] as const;
-export type ScholarshipProgram = (typeof SCHOLARSHIP_PROGRAMS)[number];
+export const SCHOLARSHIP_TYPES = ["IA", "RIA", "RM"] as const;
+export type ScholarshipType = (typeof SCHOLARSHIP_TYPES)[number];
+export const INTAKE_FOLDER = "INTAKE";
+export type DriveFolder = ScholarshipType | typeof INTAKE_FOLDER;
 
 export type VerificationStatus = "pending" | "verified" | "rejected";
 

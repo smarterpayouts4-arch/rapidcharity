@@ -82,6 +82,8 @@ export function createDraftApplication(applicationId: string, ownerUid: string):
     status: "draft",
     receiptCode: null,
     needsReview: false,
+    scholarshipType: null,
+    driveFolder: "INTAKE",
     sections: emptySections(),
     createdAt: now,
     updatedAt: now,

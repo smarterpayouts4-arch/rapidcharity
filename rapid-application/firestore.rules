@@ -32,6 +32,8 @@ service cloud.firestore {
         && request.resource.data.receiptCode == null
         && request.resource.data.submittedAt == null
         && request.resource.data.needsReview == false
+        && request.resource.data.scholarshipType == null
+        && request.resource.data.driveFolder == 'INTAKE'
         && get(/databases/$(database)/documents/scholarshipCycles/$(request.resource.data.cycleId)).data.open == true;
       allow read: if (signedIn() && resource.data.ownerUid == request.auth.uid) || isStaff();
       // Owners may change only their answers, and only while the draft is open. Submission and
@@ -40,11 +42,8 @@ service cloud.firestore {
         && resource.data.ownerUid == request.auth.uid
         && resource.data.status == 'draft'
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['sections', 'updatedAt']);
-      // Staff may record which scholarship a submitted application is for, and nothing else.
-      allow update: if isStaff()
-        && resource.data.status == 'submitted'
-        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['scholarshipProgram'])
-        && request.resource.data.scholarshipProgram in ['JIA', 'RM', 'IA', null];
+      // Scholarship classification (IA / RIA / RM) also moves the Drive folder, so it goes through
+      // the setScholarshipType function, not direct writes.
       allow delete: if false;
 
       // Metadata for files stored in Google Drive. Written only by Cloud Functions.

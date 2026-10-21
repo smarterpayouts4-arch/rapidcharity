@@ -16,26 +16,28 @@ export type DocumentSlotKey =
 type SlotSpec = { code: string; label: string; maxBytes: number; types: DocumentMime[]; maxFiles: number };
 
 const MB = 1024 * 1024;
+/** Uploads travel base64-encoded in one request; serverless hosts cap request bodies at 4.5 MB. */
+export const MAX_DOCUMENT_BYTES = 3 * MB;
 const ANY: DocumentMime[] = ["application/pdf", "image/jpeg", "image/png"];
 
 export const DOCUMENT_SLOTS: Record<DocumentSlotKey, SlotSpec> = {
-  docApplicantId: { code: "APPLICANT-ID", label: "Your CNIC / B-Form (front & back)", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
+  docApplicantId: { code: "APPLICANT-ID", label: "Your CNIC / B-Form (front & back)", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
   docPhoto: { code: "PHOTO", label: "Recent photo", maxBytes: 2 * MB, types: ["image/jpeg", "image/png"], maxFiles: 1 },
-  docAdmissionProof: { code: "ADMISSION-PROOF", label: "Admission letter or student card", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
-  docFeeVoucher: { code: "FEE-VOUCHER", label: "Fee voucher for the term", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
+  docAdmissionProof: { code: "ADMISSION-PROOF", label: "Admission letter or student card", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
+  docFeeVoucher: { code: "FEE-VOUCHER", label: "Fee voucher for the term", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
   docRecommendation: {
     code: "RECOMMENDATION",
     label: "Recommendation letter from your pastor / priest",
-    maxBytes: 5 * MB,
+    maxBytes: MAX_DOCUMENT_BYTES,
     types: ANY,
     maxFiles: 1,
   },
-  docGuardianId: { code: "GUARDIAN-ID", label: "Father / mother / guardian CNIC", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
-  docIncomeProof: { code: "INCOME-PROOF", label: "Income proof (salary slip / affidavit)", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
-  docDeathCert: { code: "DEATH-CERT", label: "Death certificate", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
-  docDisabilityCert: { code: "DISABILITY-CERT", label: "Disability certificate", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
-  docOther: { code: "OTHER", label: "Anything else? (optional)", maxBytes: 5 * MB, types: ANY, maxFiles: 3 },
-  resultDoc: { code: "RESULT", label: "Result document (optional)", maxBytes: 5 * MB, types: ANY, maxFiles: 1 },
+  docGuardianId: { code: "GUARDIAN-ID", label: "Father / mother / guardian CNIC", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
+  docIncomeProof: { code: "INCOME-PROOF", label: "Income proof (salary slip / affidavit)", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
+  docDeathCert: { code: "DEATH-CERT", label: "Death certificate", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
+  docDisabilityCert: { code: "DISABILITY-CERT", label: "Disability certificate", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
+  docOther: { code: "OTHER", label: "Anything else? (optional)", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 3 },
+  resultDoc: { code: "RESULT", label: "Result document (optional)", maxBytes: MAX_DOCUMENT_BYTES, types: ANY, maxFiles: 1 },
 };
 
 export const SECTION_11_SLOTS: DocumentSlotKey[] = [

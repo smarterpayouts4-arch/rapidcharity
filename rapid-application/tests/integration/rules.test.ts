@@ -79,18 +79,18 @@ describe("scholarshipApplications", () => {
     await assertFails(updateDoc(doc(owner(), `scholarshipApplications/${APP_ID}`), { "sections.s9_essay": {}, updatedAt: 2 }));
   });
 
-  it("lets only staff record the scholarship on a submitted application", async () => {
+  it("keeps scholarship type and Drive filing out of browser writes", async () => {
+    const preset = { ...createDraftApplication("dddddddd-dddd-4ddd-8ddd-dddddddddddd", "owner-uid"), scholarshipType: "IA" };
+    await assertFails(setDoc(doc(owner(), `scholarshipApplications/${preset.applicationId}`), preset));
     await seedDraft();
-    const asStaff = doc(staff(), `scholarshipApplications/${APP_ID}`);
-    await assertFails(updateDoc(asStaff, { scholarshipProgram: "RM" }));
     await env.withSecurityRulesDisabled(async (ctx) => {
       await updateDoc(doc(ctx.firestore(), `scholarshipApplications/${APP_ID}`), { status: "submitted" });
     });
-    await assertSucceeds(updateDoc(asStaff, { scholarshipProgram: "RM" }));
-    await assertSucceeds(updateDoc(asStaff, { scholarshipProgram: null }));
-    await assertFails(updateDoc(asStaff, { scholarshipProgram: "OTHER" }));
-    await assertFails(updateDoc(asStaff, { scholarshipProgram: "JIA", status: "draft" }));
-    await assertFails(updateDoc(doc(owner(), `scholarshipApplications/${APP_ID}`), { scholarshipProgram: "IA" }));
+    for (const db of [owner(), staff()]) {
+      const ref = doc(db, `scholarshipApplications/${APP_ID}`);
+      await assertFails(updateDoc(ref, { scholarshipType: "RM" }));
+      await assertFails(updateDoc(ref, { driveFolder: "RIA" }));
+    }
   });
 });
 

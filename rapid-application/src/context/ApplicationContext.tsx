@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
-import { httpsCallable, type FunctionsError } from "firebase/functions";
+import type { FunctionsError } from "firebase/functions";
 import { useAuth } from "./AuthContext";
 import { createDraftApplication } from "@/lib/application/emptyApplication";
 import { createDraft, listDocuments, listOwnerApplications, loadApplication, saveDraftSections } from "@/lib/application/firestore";
@@ -7,7 +7,7 @@ import { checkFile, type DocumentSlotKey } from "@/lib/form/documents";
 import type { Issue } from "@/lib/form/rules";
 import { DEFAULT_CYCLE_ID } from "@/lib/validation/constants";
 import type { ApplicationSections, DocumentRecord, ScholarshipApplication } from "@/types/application";
-import { getFirebaseFunctions } from "@/lib/firebase/client";
+import { callServer } from "@/lib/firebase/server";
 
 type SaveState = "idle" | "saving" | "saved" | "error";
 
@@ -151,9 +151,12 @@ export function ApplicationProvider({ children }: { children: ReactNode }) {
       const { base64, bytes } = await readAsBase64(file);
       const check = checkFile(slot, bytes);
       if (!check.ok) throw new Error(check.message);
-      const fn = httpsCallable(getFirebaseFunctions(), "uploadScholarshipDocument", { timeout: 150_000 });
       try {
-        await fn({ applicationId: application.applicationId, slot, index, entryId, label, dataBase64: base64 });
+        await callServer(
+          "uploadScholarshipDocument",
+          { applicationId: application.applicationId, slot, index, entryId, label, dataBase64: base64 },
+          150_000,
+        );
       } catch (err) {
         throw new Error(messageOf(err));
       } finally {
@@ -166,9 +169,8 @@ export function ApplicationProvider({ children }: { children: ReactNode }) {
   const submit = useCallback(async () => {
     if (!application) throw new Error("no-application");
     await flush();
-    const fn = httpsCallable<{ applicationId: string }, { receiptCode: string }>(getFirebaseFunctions(), "submitScholarshipApplication");
     try {
-      const { data } = await fn({ applicationId: application.applicationId });
+      const data = await callServer<{ receiptCode: string }>("submitScholarshipApplication", { applicationId: application.applicationId });
       const refreshed = await loadApplication(application.applicationId);
       setApplication(refreshed);
       await refreshApplications();
