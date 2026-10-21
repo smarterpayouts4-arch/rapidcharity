@@ -7,6 +7,7 @@
 | Part | Preview setting |
 |---|---|
 | URL | https://rapid-scholarship-test.vercel.app (stable alias of the latest preview deployment) |
+| **Not this app** | `https://rapidcharity.vercel.app/apply/form` is the **original website** mock/demo apply form (Next.js). It does **not** use Firebase `rapid-cc35e` or the Drive bridge. |
 | Vercel project | `rapid-scholarship-preview` (separate from the website; no Git connection, so pushes do not deploy it) |
 | Protection | Vercel Authentication on every deployment. Visitors without access are sent to the Vercel login |
 | Firebase | Test project `rapid-cc35e`: web app "RAPID Scholarship Application (preview)", Firestore `(default)` in nam5, email-link sign-in only |

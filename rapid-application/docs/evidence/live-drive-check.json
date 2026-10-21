@@ -1,0 +1,138 @@
+{
+  "ranAt": "2026-10-21T20:31:54.738Z",
+  "environment": "real Apps Script bridge + real Drive test folder; Firestore emulator",
+  "testRootFolder": "RAPID Spring 2027 Test",
+  "applicationId": "e7ea7432-f239-4b0c-9221-16bc9e5e57d5",
+  "driveFileIds": [
+    "16jkxp1Tpxlue64JhAIVmDierBTZ6QQyb",
+    "1COEVLu2v3SjFBOEZdJRhXUPHzLP2UwpN"
+  ],
+  "results": [
+    {
+      "check": "bridge answers a correctly signed request",
+      "ok": true
+    },
+    {
+      "check": "wrong signing key is rejected",
+      "ok": true
+    },
+    {
+      "check": "unsigned request is rejected",
+      "ok": true
+    },
+    {
+      "check": "expired request is rejected",
+      "ok": true
+    },
+    {
+      "check": "replayed request is rejected",
+      "ok": true
+    },
+    {
+      "check": "folder outside the allowlist is rejected",
+      "ok": true
+    },
+    {
+      "check": "PDF upload stored in Drive",
+      "ok": true,
+      "detail": "16jkxp1Tpxlue64JhAIVmDierBTZ6QQyb"
+    },
+    {
+      "check": "repeating the same upload does not create a second file",
+      "ok": true
+    },
+    {
+      "check": "Drive succeeded but Firestore did not finish: retry reuses the same Drive file",
+      "ok": true
+    },
+    {
+      "check": "text file disguised as a document is rejected before Drive",
+      "ok": true,
+      "detail": "invalid-argument"
+    },
+    {
+      "check": "another applicant cannot upload to this application",
+      "ok": true,
+      "detail": "permission-denied"
+    },
+    {
+      "check": "staff retrieve returns the identical file",
+      "ok": true
+    },
+    {
+      "check": "Firestore metadata matches the Drive file",
+      "ok": true
+    },
+    {
+      "check": "non-staff cannot retrieve documents",
+      "ok": true,
+      "detail": "permission-denied"
+    },
+    {
+      "check": "a file cannot be fetched through another application's folder",
+      "ok": true,
+      "detail": "not-found"
+    },
+    {
+      "check": "application submitted before classification",
+      "ok": true,
+      "detail": "submitted"
+    },
+    {
+      "check": "staff classify as IA updates Firestore and Drive",
+      "ok": true
+    },
+    {
+      "check": "Firestore driveFolder is IA after classify",
+      "ok": true
+    },
+    {
+      "check": "classify IA is idempotent on Drive",
+      "ok": true
+    },
+    {
+      "check": "documents still retrievable after filing in IA",
+      "ok": true
+    },
+    {
+      "check": "staff classify as RIA updates Firestore and Drive",
+      "ok": true
+    },
+    {
+      "check": "Firestore driveFolder is RIA after classify",
+      "ok": true
+    },
+    {
+      "check": "classify RIA is idempotent on Drive",
+      "ok": true
+    },
+    {
+      "check": "documents still retrievable after filing in RIA",
+      "ok": true
+    },
+    {
+      "check": "staff classify as RM updates Firestore and Drive",
+      "ok": true
+    },
+    {
+      "check": "Firestore driveFolder is RM after classify",
+      "ok": true
+    },
+    {
+      "check": "classify RM is idempotent on Drive",
+      "ok": true
+    },
+    {
+      "check": "documents still retrievable after filing in RM",
+      "ok": true
+    },
+    {
+      "check": "classification does not change Drive file ids",
+      "ok": true
+    },
+    {
+      "check": "unassign moves folder back to INTAKE",
+      "ok": true
+    }
+  ]
+}

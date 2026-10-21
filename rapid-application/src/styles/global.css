@@ -55,22 +55,38 @@ a {
 .field {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 1.35rem;
+  min-width: 0;
 }
 
 .field label {
   font-weight: 500;
   font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 .field input,
 .field select,
 .field textarea {
   font: inherit;
-  padding: 0.55rem 0.65rem;
+  width: 100%;
+  max-width: 100%;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.75rem;
   border: 1px solid var(--border);
   border-radius: 6px;
+  line-height: 1.35;
+}
+
+.field textarea {
+  min-height: 7rem;
+  resize: vertical;
+}
+
+.field select {
+  padding-right: 2rem;
+  background-color: #fff;
 }
 
 .field input:focus-visible,
@@ -91,7 +107,8 @@ button:focus-visible {
   font-weight: 600;
   border: none;
   border-radius: 6px;
-  padding: 0.65rem 1rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.1rem;
   cursor: pointer;
   background: var(--brand);
   color: #fff;
@@ -140,8 +157,11 @@ button:focus-visible {
 }
 
 .sub-label {
+  display: block;
   font-size: 0.85rem;
-  margin-top: 0.4rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
 }
 
 .link-button {
@@ -328,6 +348,78 @@ button:focus-visible {
 .suggestion-list li button:hover,
 .suggestion-list li button[aria-selected="true"] {
   background: #f3ece8;
+}
+
+/* Mobile-first: comfortable spacing and tap targets; avoid iOS input zoom. */
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 0.75rem 0.85rem 2.5rem;
+  }
+
+  .card {
+    padding: 1rem 0.85rem;
+  }
+
+  .field {
+    margin-bottom: 1.5rem;
+    gap: 0.55rem;
+  }
+
+  .field label {
+    font-size: 1rem;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+    min-height: 3rem;
+  }
+
+  .hint {
+    line-height: 1.45;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .button-row .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .progress {
+    gap: 0.25rem;
+  }
+
+  .progress a {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.55rem;
+  }
+
+  .review-block dl div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+
+  .admin-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .app-shell {
+    padding: 1.25rem 1.25rem 3rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.35rem;
+  }
 }
 
 .suggestion-meta {
