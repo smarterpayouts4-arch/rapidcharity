@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "default": "rapid-charity-prod"
+  },
+  "targets": {
+    "rapid-charity-prod": {
+      "hosting": {
+        "apply-rapidcharity": ["rapid-charity-prod-apply"]
+      }
+    }
+  }
+}

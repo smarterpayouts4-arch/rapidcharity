@@ -1,0 +1,10 @@
+node_modules
+dist
+.emulator-data
+*.local
+/lib
+functions/lib
+public/catalog
+test-results
+playwright-report
+*-debug.log

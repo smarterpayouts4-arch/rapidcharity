@@ -16,7 +16,10 @@
     "qa:content": "node scripts/content-connection-audit.mjs",
     "qa:content:strict": "node scripts/content-connection-audit.mjs --strict",
     "qa:final:http": "node scripts/final-system-http-audit.mjs",
-    "test:sims": "playwright test -c playwright.sims.config.ts"
+    "test:sims": "playwright test -c playwright.sims.config.ts",
+    "dev:apply": "npm run dev --prefix rapid-application",
+    "test:apply": "npm run test --prefix rapid-application",
+    "typecheck:apply": "npm run typecheck --prefix rapid-application"
   },
   "dependencies": {
     "exceljs": "^4.4.0",
