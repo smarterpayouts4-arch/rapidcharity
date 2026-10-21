@@ -19,6 +19,11 @@ export type ServerDeps = {
 
 type Data = Record<string, unknown>;
 
+/** Reads bridge settings only when Drive is used, so permission checks run first. */
+function lazyBridge(d: ServerDeps): DriveBridge {
+  return { upload: (p) => d.bridge().upload(p), fetch: (p) => d.bridge().fetch(p), file: (p) => d.bridge().file(p) };
+}
+
 /** Grants the `staff` claim to signed-in, verified emails listed in STAFF_EMAILS. */
 async function claimStaffAccess(deps: ServerDeps, caller: Caller) {
   const email = caller.email?.toLowerCase();
@@ -39,10 +44,10 @@ async function claimStaffAccess(deps: ServerDeps, caller: Caller) {
 /** Every server operation, shared by Cloud Functions (`index.ts`) and the Vercel preview (`api/rpc`). */
 export const OPERATIONS = {
   submitScholarshipApplication: (d: ServerDeps, c: Caller, data: Data) => handleSubmit(d.db, c, data, d.duplicateSecret()),
-  uploadScholarshipDocument: (d: ServerDeps, c: Caller, data: Data) => handleUpload(d.db, d.bridge(), d.driveRootFolderId(), c, data),
-  getScholarshipDocument: (d: ServerDeps, c: Caller, data: Data) => handleGetDocument(d.db, d.bridge(), d.driveRootFolderId(), c, data),
+  uploadScholarshipDocument: (d: ServerDeps, c: Caller, data: Data) => handleUpload(d.db, lazyBridge(d), d.driveRootFolderId(), c, data),
+  getScholarshipDocument: (d: ServerDeps, c: Caller, data: Data) => handleGetDocument(d.db, lazyBridge(d), d.driveRootFolderId(), c, data),
   setScholarshipDocumentVerification: (d: ServerDeps, c: Caller, data: Data) => handleSetVerification(d.db, c, data),
-  setScholarshipType: (d: ServerDeps, c: Caller, data: Data) => handleSetScholarshipType(d.db, d.bridge(), d.driveRootFolderId(), c, data),
+  setScholarshipType: (d: ServerDeps, c: Caller, data: Data) => handleSetScholarshipType(d.db, lazyBridge(d), d.driveRootFolderId(), c, data),
   claimStaffAccess: (d: ServerDeps, c: Caller) => claimStaffAccess(d, c),
 } as const;
 

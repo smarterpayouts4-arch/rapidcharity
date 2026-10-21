@@ -4,7 +4,10 @@ dist
 *.local
 /lib
 functions/lib
+.vercel
+.vercel-build
 public/catalog
 test-results
 playwright-report
 *-debug.log
+.env*

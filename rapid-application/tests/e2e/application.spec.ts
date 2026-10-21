@@ -347,7 +347,7 @@ test("8. staff classify as RIA, documents move in Drive, and export Excel and CS
   };
   const ExcelJS = (await import("exceljs")).default;
   const book = new ExcelJS.Workbook();
-  await book.xlsx.load(await readDownload("Export Excel (.xlsx)"));
+  await book.xlsx.load(new Uint8Array(await readDownload("Export Excel (.xlsx)")).buffer);
   expect(book.worksheets.map((w) => w.name)).toEqual(["Applications", "Academic results", "Documents"]);
   const sheet = book.getWorksheet("Applications")!;
   const header = (sheet.getRow(1).values as unknown[]).map(String);

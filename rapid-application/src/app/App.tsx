@@ -13,6 +13,11 @@ export function App() {
     <AuthProvider>
       <ApplicationProvider>
         <div className="app-shell">
+          {import.meta.env.VITE_PREVIEW_BANNER === "1" ? (
+            <p role="note" className="error-text" style={{ margin: "0 0 0.5rem", fontWeight: 600 }}>
+              RAPID test environment. Use fictional details and placeholder documents only. This is not the real application.
+            </p>
+          ) : null}
           <header>
             <Link to="/" className="brand">
               RAPID Scholarship

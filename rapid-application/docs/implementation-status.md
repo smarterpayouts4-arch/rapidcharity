@@ -16,13 +16,14 @@ Last updated: 2026-10-21
 | Documents | Server-side upload via Functions → Drive bridge; type/size/magic-byte checks; opaque folder `root/{applicationId}`; retry and duplicate safe | `server.test.ts`, E2E 6 |
 | Submit | Server validates the stored draft; CNIC duplicate key in one transaction; idempotent receipt `RAPID-2027-XXXXXXXX` | `server.test.ts`, E2E 10 |
 | Admin | Staff claim from allowlist; list, detail, view/verify/reject documents, typed-in answers queue, CSV export, open/deadline | `server.test.ts`, E2E 7–8 |
-| Scholarship | Staff set JIA / RM / IA on a submitted application; shown in CSV. No folder routing | `rules.test.ts`, E2E 8 |
+| Scholarship | Staff classify IA / RIA / RM (or unassigned); Drive folder moves INTAKE ↔ type folder; filter and export by type | `server.test.ts`, `rules.test.ts`, E2E 8, preview tests |
+| Export | `.xlsx` (Applications, Academic results, Documents) and CSV, filtered by round and type, formula-safe, no Drive ids | `documents.test.ts`, E2E 8, preview test 5 |
 
 Latest runs: typecheck clean; unit 34/34; emulator integration + rules 27/27; Playwright 10/10.
 
 ## Not done yet (needs RAPID access or a decision)
 
-- **RAPID Firebase project:** `rapid-cc35e`, new and separate from the website's project. Developer invitation sent, not yet accepted. On Spark; Blaze is needed for Functions.
+- **RAPID Firebase project:** `rapid-cc35e`, new and separate from the website's project, used as the test project. Web app, Firestore (nam5), email-link Auth and the Firestore rules are set up. On Spark, so the server code runs on the Vercel preview (`preview-environment.md`).
 - **Drive bridge deployment:** `drive-bridge/Code.gs` must be deployed by the rapidcharity Google account. See `drive-integration.md`.
 - **Real Drive upload through Functions:** not run yet; it depends on the two items above. Drive write access to the test folder was verified separately.
 - **Live bridge test:** `npm run live:drive` is ready; it runs once the bridge is deployed.

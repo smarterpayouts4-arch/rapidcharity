@@ -8,7 +8,7 @@
 - [x] Catalog typeahead and "Can't find your institution? Enter it manually." with staff review queue
 - [x] Uploads: type, size and file-signature checks; retries and repeats do not duplicate files
 - [x] Submit: one application per CNIC, same receipt on repeat, siblings may share an email
-- [x] Staff: list, detail, view/verify/reject documents, scholarship (JIA/RM/IA) metadata, CSV export, round open/deadline
+- [x] Staff: list, detail, view/verify/reject documents, scholarship classification (IA/RIA/RM) with Drive filing, Excel/CSV export, round open/deadline
 - [x] Security rules for every collection
 
 ## Tested against real Google services

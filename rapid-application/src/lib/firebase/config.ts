@@ -9,4 +9,5 @@ export const firebaseConfig = {
 
 export const useEmulators = env.VITE_USE_EMULATORS === "1" || env.MODE === "test" || env.DEV;
 
-export const appOrigin = env.VITE_APP_ORIGIN ?? "http://localhost:5173";
+/** Preview deployments get a new URL each time, so without a fixed origin the current one is used. */
+export const appOrigin = env.VITE_APP_ORIGIN ?? (typeof window !== "undefined" ? window.location.origin : "http://localhost:5173");

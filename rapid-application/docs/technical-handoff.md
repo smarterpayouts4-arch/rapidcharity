@@ -34,7 +34,7 @@ Staff browser → same SPA at /admin (staff claim from STAFF_EMAILS allowlist)
 - Validation rules live once in `src/lib/form/` and run in the browser and in Functions.
 - Files are never shared by link. Staff view them through a function that streams the bytes.
 - Folder and file names contain only the opaque application ID, never names or CNICs.
-- Scholarship type (JIA / RM / IA) is metadata set by staff on a submitted application (`scholarshipProgram`), included in the CSV export. It does not change where files are stored.
+- Scholarship type (IA / RIA / RM) is set by staff on a submitted application (`scholarshipType`, null until classified) through `setScholarshipType`, which also moves the Drive application folder from `INTAKE` to the type folder (`driveFolder`). See `drive-integration.md`.
 
 ## Test evidence
 
@@ -65,8 +65,8 @@ The fake bridge applies the same checks as `Code.gs`, but it is not Google Drive
 | Firestore | 50k reads, 20k writes per day; 1 GiB stored | Well below |
 | Hosting | 10 GB stored, ~360 MB/day transfer | Small static app |
 | Auth (email link) | Sign-in emails have a daily sending quota | Check Authentication → Usage at peak |
-| Apps Script (consumer account) | 6 min per execution, 30 simultaneous executions | One upload per call; uploads up to 5 MB |
-| Drive storage | 15 GB shared across the rapidcharity Gmail account | About 6 files of up to 5 MB per applicant |
+| Apps Script (consumer account) | 6 min per execution, 30 simultaneous executions | One upload per call; uploads up to 3 MB |
+| Drive storage | 15 GB shared across the rapidcharity Gmail account | About 6 files of up to 3 MB per applicant |
 
 Expected cost at RAPID's volume is near zero, but Blaze has no hard cap; set a budget alert. Drive storage is the limit most likely to matter over several cycles.
 
