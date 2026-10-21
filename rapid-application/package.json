@@ -19,6 +19,7 @@
     "emulators": "npm run functions:build && npx --yes firebase-tools@14 emulators:start --project demo-rapid-scholarship",
     "live:drive": "npx --yes firebase-tools@14 emulators:exec --only firestore --project demo-rapid-scholarship \"tsx scripts/live/drive-bridge-live.ts\"",
     "live:drive:cleanup": "tsx scripts/live/drive-bridge-live.ts cleanup",
+    "sync:bridge-url": "node scripts/sync-bridge-url.mjs",
     "catalog:audit": "tsx scripts/catalog/audit.ts",
     "catalog:build": "tsx scripts/catalog/build.ts"
   },

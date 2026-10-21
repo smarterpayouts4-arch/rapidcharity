@@ -12,14 +12,17 @@ import { createHash, randomUUID } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
+import { handleSetScholarshipType } from "../../functions/src/classify";
 import { handleGetDocument, handleUpload } from "../../functions/src/documents";
 import { httpDriveBridge, signBridgeRequest } from "../../functions/src/driveBridge";
+import { handleSubmit } from "../../functions/src/submitApplication";
 import { createDraftApplication } from "../../src/lib/application/emptyApplication";
 import type { DocumentRecord } from "../../src/types/application";
 import { completeSections, PDF_BYTES, PNG_BYTES, TEXT_BYTES } from "../../tests/support/fixtures";
 
 const TEST_ROOT = "1wEUCIj_AOttFAwu4BxzAYxqPCbsTFH6h";
 const EVIDENCE = "docs/evidence/live-drive-check.json";
+const DUP_SECRET = process.env.SCHOLARSHIP_DUPLICATE_HMAC_SECRET ?? "live-drive-duplicate-secret-local-only";
 
 const settings = Object.fromEntries(
   readFileSync("functions/.secret.live.local", "utf8")
@@ -129,6 +132,35 @@ async function main() {
   );
   record("a file cannot be fetched through another application's folder", foreign.error === "not-found", foreign.error);
 
+  for (const slot of ["docAdmissionProof", "docFeeVoucher", "docRecommendation", "docGuardianId"] as const) {
+    await upload(slot, PDF_BYTES);
+  }
+  await handleSubmit(db, owner, { applicationId: appId }, DUP_SECRET);
+  const submitted = (await db.collection("scholarshipApplications").doc(appId).get()).data()!;
+  record("application submitted before classification", submitted.status === "submitted", String(submitted.status));
+
+  const idsBefore = [pdfRecord.driveFileId, pngRecord.driveFileId].sort();
+  for (const type of ["IA", "RIA", "RM"] as const) {
+    const out = await handleSetScholarshipType(db, bridge, TEST_ROOT, staff, { applicationId: appId, scholarshipType: type });
+    record(`staff classify as ${type} updates Firestore and Drive`, out.scholarshipType === type && out.driveFolder === type);
+    const meta = (await db.collection("scholarshipApplications").doc(appId).get()).data()!;
+    record(`Firestore driveFolder is ${type} after classify`, meta.driveFolder === type);
+    const moved = await bridge.file({ rootFolderId: TEST_ROOT, applicationId: appId, folder: type });
+    record(`classify ${type} is idempotent on Drive`, moved.moved === false);
+    const afterFetch = await handleGetDocument(db, bridge, TEST_ROOT, staff, { applicationId: appId, documentId: "docApplicantId_1" });
+    record(`documents still retrievable after filing in ${type}`, sha(Buffer.from(afterFetch.dataBase64, "base64")) === pdfRecord.sha256);
+  }
+  const idsAfter = (
+    await Promise.all(
+      ["docApplicantId_1", "docPhoto_1"].map(async (id) => ((await docRef(id).get()).data() as DocumentRecord).driveFileId),
+    )
+  ).sort();
+  record("classification does not change Drive file ids", JSON.stringify(idsBefore) === JSON.stringify(idsAfter));
+
+  await handleSetScholarshipType(db, bridge, TEST_ROOT, staff, { applicationId: appId, scholarshipType: null });
+  const back = (await db.collection("scholarshipApplications").doc(appId).get()).data()!;
+  record("unassign moves folder back to INTAKE", back.scholarshipType === null && back.driveFolder === "INTAKE");
+
   mkdirSync("docs/evidence", { recursive: true });
   writeFileSync(
     EVIDENCE,
@@ -138,7 +170,7 @@ async function main() {
         environment: "real Apps Script bridge + real Drive test folder; Firestore emulator",
         testRootFolder: "RAPID Spring 2027 Test",
         applicationId: appId,
-        driveFileIds: [pdfRecord.driveFileId, pngRecord.driveFileId],
+        driveFileIds: idsAfter,
         results,
       },
       null,
