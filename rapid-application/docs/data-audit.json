@@ -1,0 +1,131 @@
+{
+  "generatedAt": "2026-10-21T14:27:01.836Z",
+  "duplicateFiles": [
+    {
+      "hash": "8eb9d255de6593970ebab09247c9a08fe2e89d36572f73040312c65f491522d1",
+      "files": [
+        "C:\\Users\\ofran\\Desktop\\Rapid Charity Preview\\form References\\Form Field Spec.xlsx",
+        "C:\\Users\\ofran\\Desktop\\Rapid Charity Preview\\form References\\spec\\Form Field Spec.xlsx"
+      ]
+    }
+  ],
+  "lists": {
+    "cities.json": {
+      "count": 148,
+      "bytes": 34623
+    },
+    "degreeLevels.json": {
+      "count": 29,
+      "bytes": 8479
+    },
+    "divisions.json": {
+      "count": 5,
+      "bytes": 651
+    },
+    "documentTypes.json": {
+      "count": 12,
+      "bytes": 3684
+    },
+    "employmentStatus.json": {
+      "count": 5,
+      "bytes": 580
+    },
+    "enrolmentStatus.json": {
+      "count": 4,
+      "bytes": 523
+    },
+    "examBoards.json": {
+      "count": 46,
+      "bytes": 8989
+    },
+    "gender.json": {
+      "count": 4,
+      "bytes": 450
+    },
+    "gpaScales.json": {
+      "count": 4,
+      "bytes": 596
+    },
+    "gradeSchemes.json": {
+      "count": 7,
+      "bytes": 2595
+    },
+    "gradingScales.json": {
+      "count": 57,
+      "bytes": 34639
+    },
+    "howHeard.json": {
+      "count": 8,
+      "bytes": 813
+    },
+    "institutions.json": {
+      "count": 1249,
+      "bytes": 807111
+    },
+    "letterGrades.json": {
+      "count": 54,
+      "bytes": 7927
+    },
+    "occupations.json": {
+      "count": 13,
+      "bytes": 1124
+    },
+    "passFail.json": {
+      "count": 4,
+      "bytes": 431
+    },
+    "programs.json": {
+      "count": 753,
+      "bytes": 873476
+    },
+    "provinces.json": {
+      "count": 9,
+      "bytes": 1053
+    },
+    "relationships.json": {
+      "count": 6,
+      "bytes": 578
+    },
+    "religion.json": {
+      "count": 6,
+      "bytes": 574
+    },
+    "resultFormats.json": {
+      "count": 9,
+      "bytes": 1316
+    },
+    "resultStatus.json": {
+      "count": 4,
+      "bytes": 457
+    },
+    "studyDuration.json": {
+      "count": 9,
+      "bytes": 888
+    },
+    "studySystems.json": {
+      "count": 4,
+      "bytes": 473
+    },
+    "terms.json": {
+      "count": 40,
+      "bytes": 6829
+    },
+    "yearOfStudy.json": {
+      "count": 13,
+      "bytes": 908
+    },
+    "yesNo.json": {
+      "count": 2,
+      "bytes": 253
+    },
+    "yesNoPending.json": {
+      "count": 3,
+      "bytes": 343
+    }
+  },
+  "issues": [
+    "City city_jafarabad references missing province prov_",
+    "City city_narang_mandi references missing province prov_",
+    "City city_phool_nagar references missing province prov_"
+  ]
+}
